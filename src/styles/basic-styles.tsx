@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledIndexScreen = styled.div`
   display: flex;
@@ -8,4 +8,4 @@ export const StyledIndexScreen = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-`
+`;
