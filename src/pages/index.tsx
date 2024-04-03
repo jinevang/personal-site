@@ -5,7 +5,7 @@ const IndexPage = () => {
   return(
     <StyledIndexScreen>
       <h4>
-        Hello
+        Hello hello
       </h4>
       <p>Welcome to the site by Evan</p>
       <p>Other things will be added here eventually</p>
