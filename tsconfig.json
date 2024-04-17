@@ -1,0 +1,30 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+      // "outDir": "./dist",
+      "allowJs": true,
+      "target": "es5",
+      "allowUnreachableCode": false,
+      "noImplicitReturns": true,
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "typeRoots": [ "./typings" ],
+      "outFile": "./dist/main.js",
+      "esModuleInterop": true,
+      "jsx": "react",
+      "module": "AMD",
+      "baseUrl": "src",
+      "paths": {
+
+      },
+  },
+  "include": [
+      // "./**/*",
+      "src"
+  ],
+  "exclude": [
+      "./plugins/**/*",
+      "./typings/**/*",
+      "./dist/**/*"
+  ]
+}

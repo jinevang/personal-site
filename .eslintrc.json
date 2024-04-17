@@ -23,21 +23,19 @@
         }
     },
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
+        "indent": [1, 2], // warning for 2
+        "linebreak-style": [1, "unix"],
+        "quotes": [1, "single"],
+        "semi": [1, "always"],
+        "comma-dangle": [
+        1,
+        {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "never"
+        }
         ]
     }
 }
