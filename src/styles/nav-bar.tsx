@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { colors } from 'constants/colors';
 
 export const StyledNavBar = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 2ch;
+  position: fixed;
 
   a {
     text-decoration: none;
@@ -14,6 +16,6 @@ export const StyledNavBar = styled.nav`
   }
 
   a:visited {
-    color: blue;
+    color: ${colors.basicBlue.darker};
   }
 `;
