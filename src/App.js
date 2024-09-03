@@ -25,7 +25,8 @@ function App() {
         <div><NavBar/></div>
         <PageWrapper>
             <Routes>
-              <Route index element={<IndexPage/>}/>
+              <Route path='' element={<IndexPage/>}/>
+              <Route path='/' element={<IndexPage/>}/>
               <Route path='resume' element={<ResumePage/>}/>
               <Route path='about' element={<AboutPage/>}/>
               <Route path='photos' element={<PhotosPage/>}/>
