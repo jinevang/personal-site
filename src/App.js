@@ -23,19 +23,19 @@ function App() {
     <BrowserRouter>
       <StyledCenter>
         <div><NavBar/></div>
-      <PageWrapper>
-          <Routes>
-            <Route index element={<IndexPage/>}/>
-            <Route path='resume' element={<ResumePage/>}/>
-            <Route path='about' element={<AboutPage/>}/>
-            <Route path='photos' element={<PhotosPage/>}/>
-            <Route path='music' element={<MusicPage/>}/>
-            <Route path='*' element={<ErrorPage/>}/>
-            <Route path='drinks' element={<DrinkRatingsPage/>}/>
-          </Routes>
+        <PageWrapper>
+            <Routes>
+              <Route index element={<IndexPage/>}/>
+              <Route path='resume' element={<ResumePage/>}/>
+              <Route path='about' element={<AboutPage/>}/>
+              <Route path='photos' element={<PhotosPage/>}/>
+              <Route path='music' element={<MusicPage/>}/>
+              <Route path='*' element={<ErrorPage/>}/>
+              <Route path='drinks' element={<DrinkRatingsPage/>}/>
+            </Routes>
         </PageWrapper>
-          </StyledCenter>
-    <Footer/>
+      </StyledCenter>
+      <Footer/>
     </BrowserRouter>
   );
 }

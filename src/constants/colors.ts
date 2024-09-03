@@ -3,4 +3,4 @@ export const colors = {
     default: '#b0d9fc',
     darker: '#3aa2f8',
   },
-}
+};

@@ -29,7 +29,7 @@ export const StyledCenter = styled.div`
   > div:nth-child(1) {
     top: 50%; 
   }
-`
+`;
 
 export const StyledFooter = styled.div`
   position: fixed;
@@ -40,4 +40,4 @@ export const StyledFooter = styled.div`
   padding: 6px 8px;
   text-align: right;
   right: 0;
-  `
+  `;
