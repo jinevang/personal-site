@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const ImageList = styled.div`
   display: flex;
-
   flex-direction: column;
 
   gap: 2ch;
