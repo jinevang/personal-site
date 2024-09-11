@@ -6,6 +6,7 @@ export const StyledNavBar = styled.nav`
   flex-direction: column;
   gap: 2ch;
   position: fixed;
+  width: 100%;
 
   a {
     text-decoration: none;

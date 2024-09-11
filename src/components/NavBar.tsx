@@ -1,5 +1,27 @@
+import { colors } from 'constants/colors';
 import React from 'react';
-import { StyledNavBar } from 'styles/nav-bar';
+import styled from 'styled-components';
+
+const StyledNavBar = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
+  position: fixed;
+  border: 1px solid green;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: ${colors.basicBlue.darker};
+  }
+`;
+
 
 const NavBar = () => {
   return(<StyledNavBar>

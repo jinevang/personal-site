@@ -22,8 +22,10 @@ export const StyledCenter = styled.div`
   gap: 100px;
   justify-content: space-between;
   align-items: top;
-  
+  right: 25vw;
+  width: 70%;
   left: 25vw;
+  border: 1px solid red;
 
   padding-bottom: 25px;
   > div:nth-child(1) {

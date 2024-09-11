@@ -17,12 +17,13 @@ import MusicPage from 'pages/MusicPage';
 import Footer from 'components/Footer';
 import PageWrapper from 'components/PageWrapper';
 import DrinkRatingsPage from 'pages/DrinkRatingsPage';
+import { Box } from '@mui/material';
 
 function App() {
   return (
     <BrowserRouter>
       <StyledCenter>
-        <div><NavBar/></div>
+        <Box sx={{}}><NavBar/></Box>
         <PageWrapper>
             <Routes>
               <Route path='' element={<IndexPage/>}/>
