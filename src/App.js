@@ -22,8 +22,8 @@ import { Box } from '@mui/material';
 function App() {
   return (
     <BrowserRouter>
+        <NavBar/>
       <StyledCenter>
-        <Box sx={{}}><NavBar/></Box>
         <PageWrapper>
             <Routes>
               <Route path='' element={<IndexPage/>}/>
@@ -37,7 +37,7 @@ function App() {
             </Routes>
         </PageWrapper>
       </StyledCenter>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }

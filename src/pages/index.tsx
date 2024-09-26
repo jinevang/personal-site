@@ -5,31 +5,26 @@ import { Box, Grid2 as Grid, Typography } from '@mui/material';
 
 const IndexPage = () => {
   return(
-    <Box sx={{width: '100%', border: '1px solid green'}}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignContent: 'center', border: '1px solid blue', width: '100%'}}>
-      <Typography sx={{fontSize: 120, fontWeight: 600}}>
+    <Box sx={{width: '100%'}}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignContent: 'center', width: '100%'}}>
+      <Typography sx={{fontSize: 120, fontWeight: 500, fontFamily: 'inherit'}}>
         Hello!
       </Typography>
-      <Box sx={{display: 'flex', flexDirection: 'column', gap: '1ch', width: '100%', flexWrap: 'wrap', border: '1px solid pink', height: '75vh', alignContent: 'flex-start'}}>
-      <CustomBox backgroundColor='lightgray' height='15vh'>Hello</CustomBox>
-      <CustomBox backgroundColor='lightgray' height='29vh'>Hello</CustomBox>
-      <CustomBox backgroundColor='lightgray' height='33vh'>Hello</CustomBox>
-      <CustomBox backgroundColor='lightgray' height='12vh'>Hello</CustomBox>
+      <Box sx={{display: 'flex', flexDirection: 'column', gap: '1ch', width: '100%', flexWrap: 'wrap', height: '75vh', alignContent: 'center'}}>
+      <CustomBox backgroundColor='lightgray' height='15vh'>
+        <Typography sx={{fontSize: '28px'}}>Software Engineer based in Seattle, WA</Typography>
+      </CustomBox>
+      <CustomBox backgroundColor='lightgray' height='20vh'>Hello</CustomBox>
+      <CustomBox backgroundColor='lightgray' height='fit-content'><img src={require('../assets/malatang.png')}/></CustomBox>
+      <CustomBox backgroundColor='lightgray' height='25vh'>Hello</CustomBox>
       <CustomBox backgroundColor='lightgray' height='25vh'>Hello</CustomBox>
 
-      <CustomBox backgroundColor='lightgray' height='30vh'>Hello</CustomBox>
+      <CustomBox backgroundColor='lightgray' height='40vh'>Hello</CustomBox>
 
 
       </Box>
       </Box>
-        
-      {/* <CustomBox backgroundColor='#312509' image>
-        <img src={require('../assets/lemon_boulder.jpg')}/>
-        </CustomBox>
-        <CustomBox backgroundColor='#65532F' image>
-        <img src={require('../assets/circle_mirror.jpg')}/>
-        </CustomBox> */}
-        <img style={{position: 'absolute', bottom: '20px', right: '80%', width: '35%'}} src={require('../assets/Subject.png')}></img>
+        <img style={{position: 'absolute', bottom: '10%', right: '80%', width: '30%'}} src={require('../assets/Subject.png')}></img>
     </Box>
   );
 };

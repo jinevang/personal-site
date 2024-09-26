@@ -13,9 +13,9 @@ export const StyledIndexScreen = styled.div`
 
 export const StyledCenter = styled.div`
   position: absolute;
-  top: 30%;
-  margin-top: -50px;
   margin-left: -50px;
+
+  top: 10%;
 
   display: flex;
   flex-direction: row;
@@ -25,12 +25,8 @@ export const StyledCenter = styled.div`
   right: 25vw;
   width: 70%;
   left: 25vw;
-  border: 1px solid red;
 
   padding-bottom: 25px;
-  > div:nth-child(1) {
-    top: 50%; 
-  }
 `;
 
 export const StyledFooter = styled.div`

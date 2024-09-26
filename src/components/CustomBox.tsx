@@ -13,9 +13,12 @@ const StyledBox = styled(Box)<{backgroundColor?: string, image?: boolean, height
 		display: 'flex',
 		alignContent: 'center',
 		justifyContent: 'center',
-		
+		fontFamily: 'inherit',
+		textAlign: 'center',
+		alignItems: 'center',
 		'& img': {
-			width: '25vw',
+			width: '100%',
+			height: '100%',
 			borderRadius: '5px',
 		}
 	})
