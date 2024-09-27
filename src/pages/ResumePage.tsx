@@ -86,12 +86,12 @@ const ResumePage = () => {
       <Typography fontWeight={700}>Relevant Coursework</Typography>
       <Grid container spacing={2} columns={{md: 18, sm: 12}}>
         <Grid size={6}><Typography fontSize={14}>Data Structures & Algorithms I & II</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Analysis & Design</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Operating Systems</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Technical Writing</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Software Engineering</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Cloud Computing</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Hardware Organization</Typography></Grid>
       </Grid>
