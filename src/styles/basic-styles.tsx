@@ -20,6 +20,7 @@ export const StyledCenter = styled(Box)({
   },
 
   [theme.breakpoints.down('md')]: {
+    top: '12vh',
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'center',

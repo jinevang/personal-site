@@ -32,6 +32,7 @@ const StyledNavBar = styled(AppBar)({
     backgroundColor: colors.basicBlue.default,
     transition: '0.5s normal',
     fontSize: '18px',
+    height: '10vh',
     '& a': {
       ":visited": {
       color: 'white',
