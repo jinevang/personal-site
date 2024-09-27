@@ -1,41 +1,46 @@
-import styled from 'styled-components';
 import { colors } from 'constants/colors';
+import { Box } from '@mui/material';
+import styled from '@emotion/styled';
+import { theme } from './BasicTheme';
 
-export const StyledIndexScreen = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  justify-content: space-between;
+export const StyledCenter = styled(Box)({
+  position: 'absolute',
+  top: '10%',
+  gap: '100px',
+  
+  [theme.breakpoints.up('md')]: {
+    marginLeft: '-50px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    right: '25vw',
+    width: '70%',
+    left: '25vw',
+    paddingBottom: '25px',
+    alignItems: 'top',
+  },
 
-  overflow: auto;
-`;
+  [theme.breakpoints.down('md')]: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '0 2ch',
+    left: 0,
+    marginLeft: 0,
+    'h1': {
+      display: 'flex',
+      justifyContent: 'center'
+    },
+  }
+})
 
-export const StyledCenter = styled.div`
-  position: absolute;
-  margin-left: -50px;
-
-  top: 10%;
-
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
-  justify-content: space-between;
-  align-items: top;
-  right: 25vw;
-  width: 70%;
-  left: 25vw;
-
-  padding-bottom: 25px;
-`;
-
-export const StyledFooter = styled.div`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: ${colors.basicBlue.default};
-
-  padding: 6px 8px;
-  text-align: right;
-  right: 0;
-  `;
+export const StyledFooter = styled(Box)({
+  position: 'fixed',
+  bottom: 0,
+  width: '100%',
+  backgroundColor: colors.basicBlue.default,
+  padding: '6px 8px',
+  textAlign: 'right',
+  right: 0,
+})

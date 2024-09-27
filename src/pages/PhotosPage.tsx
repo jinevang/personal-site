@@ -1,45 +1,69 @@
+import styled from '@emotion/styled';
 import { Box, Dialog, DialogContent } from '@mui/material';
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { theme } from 'styles/BasicTheme';
 
-const ImageList = styled.div`
-  display: flex;
-  flex-direction: column;
+const ImageList = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2ch',
 
-  gap: 2ch;
-  img {
-    max-width: 60vw;
-    border-radius: 8px;
+  '& img': {
+    maxWidth: '60vw',
+    borderRadius: '8px',
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '100vw',
+      padding: 0,
+      margin: 0,
+    },
+  },
+
+  '& label': {
+    [theme.breakpoints.down('md')]: {
+      alignItems: 'center',
+      alignContent: 'center',
+      display: 'flex',
+      justifyContent: 'center'
+    }
   }
-`;
+  
+})
+
+const StyledPhotosPage = styled(Box)({
+  [theme.breakpoints.down('md')]: {
+    'h1': {
+      display: 'flex',
+      justifyContent: 'center'
+    },
+
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: 0,
+    paddingTop: '2ch'
+  }
+})
 
 const PhotosPage = () => {
+  return(<StyledPhotosPage>
 
-
-  // const [overlayOn, setOverlayOn] = useState(false);
-  // const [currentImage, setCurrentImage] = useState<string>('');
-
-  return(<Box>
-{/* <Dialog
-  open={overlayOn}
-  style={{width: '200px', marginLeft: '40%', backgroundColor: 'transparent'}} >
-    {overlayOn ? <Box sx={{width: '50vw'}} component='img' src={require('../assets/IMG_0267.png')} alt='current'></Box>
-    : null}
-    </Dialog>     */}
   <h1>Photos</h1>
     <ImageList>
-      <Box component='img' src={require('../assets/IMG_0267.png')} loading='lazy'></Box>
+      <Box component='img' src={require('../assets/eiffel.png')} loading='lazy' width={'100%'} ></Box>
       <label><i>Eiffel Through Trees</i> - 2024</label>
-      <img src={require('../assets/IMG_0333.png')} loading='lazy'></img>
+      <Box component='img' src={require('../assets/paris_split.png')} loading='lazy' width={'100%'}></Box>
       <label><i>Split View </i>- 2024</label>
-      <img src={require('../assets/IMG_0567.png')} loading='lazy'></img>
+      <Box component='img' src={require('../assets/paris_corner.png')} loading='lazy' width={'100%'}></Box>
       <label><i>Cornerside Dinner</i> - 2024</label>
-      <img src={require('../assets/IMG_1764.png')} loading='lazy'></img>
-      <label><i>Venice</i> - 2024</label>
-      <img src={require('../assets/IMG_7365.png')} loading='lazy'></img>
+      <Box component='img' src={require('../assets/venice_quiet.png')} loading='lazy' width={'100%'}></Box>
+      <label><i>Quiet Venetian Path</i> - 2024</label>
+      <Box component='img' src={require('../assets/ferry_view.png')} loading='lazy' width={'100%'}></Box>
       <label><i>Ferry View</i> - 2023</label>
+      <Box component='img' src={require('../assets/taipei_101_landscape.jpg')} loading='lazy' width={'100%'}></Box>
+      <label><i>Taipei 101</i> - 2023</label>
+
     </ImageList>
-  </Box>);
+  </StyledPhotosPage>);
 };
 
 export default PhotosPage;

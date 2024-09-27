@@ -5,15 +5,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { theme } from 'styles/BasicTheme';
 
-
 const StyledNavBar = styled(AppBar)({
   backgroundColor: 'transparent',
   ":active": {
     backgroundColor: 'transparent',
   },
-  ":focus": {
-    backgroundColor: 'transparent',
-  },
+
   [theme.breakpoints.up('md')]: {
     display: 'flex',
     flexDirection: 'column',
@@ -23,7 +20,7 @@ const StyledNavBar = styled(AppBar)({
     left: '10ch',
     top: '40vh',
     bottom: '50vh',
-    width: '20vw',
+    width: 'fit-content',
     backgroundColor: 'transparent',
   },
 
@@ -34,24 +31,30 @@ const StyledNavBar = styled(AppBar)({
     padding: '3ch',
     backgroundColor: colors.basicBlue.default,
     transition: '0.5s normal',
-    fontSize: '26px',
+    fontSize: '18px',
+    '& a': {
+      ":visited": {
+      color: 'white',
+    },
+    ":not:visited": {
+      color: 'white'
+    }
+    }
   },
 
   boxShadow: 'none',
   
-  '& a': {
+  'a': {
     textDecoration: 'none',
     backgroundColor: 'none',
     ":focus": {
       backgroundColor: 'none',
-
     },
     ":hover": {
       textDecoration: 'underline',
     },
     ":active": {
       textDecoration: 'underline',
-      backgroundColor: 'transparent'
     },
     ":visited": {
       color: colors.basicBlue.darker,
@@ -63,9 +66,6 @@ const StyledNavBar = styled(AppBar)({
 });
 
 const NavBar = () => {
-
-  const { location } = useParams();
-  console.log(location);
 
   return(<StyledNavBar>
     

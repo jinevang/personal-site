@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+import { theme } from 'styles/BasicTheme';
+import styled from '@emotion/styled';
 
 const ResumeCard = styled(Box)({
   borderRadius: '5px',
@@ -9,7 +10,40 @@ const ResumeCard = styled(Box)({
   paddingBottom: '4ch',
   maxWidth: '75ch',
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+  [theme.breakpoints.down('md')]: {
+
+  }
 });
+
+const InfoHolder = styled(Box)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  [theme.breakpoints.up('md')]: {
+    'span': {
+      display: 'flex',
+      gap: '1ch',
+      alignItems: 'center',
+      paddingBottom: '1ch'
+    }
+  },
+
+  'p': {
+    fontFamily: 'inherit'
+  },
+
+  [theme.breakpoints.down('md')]: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignContent: 'flex-start',
+    'span': {
+      display: 'flex',
+      flexDirection: 'column',
+      paddingBottom: '1ch'
+    }
+  }
+})
 
 
 const ResumePage = () => {
@@ -29,13 +63,13 @@ const ResumePage = () => {
       <h2>Experience</h2>
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '3ch'}}>
         <ResumeCard>
-          <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography sx={{display: 'flex', gap: '1ch'}}>
-              <h3 style={{fontWeight: '800'}}>CommandLink</h3>
-              <h4 style={{fontWeight: '400'}}>Software Engineer</h4>
-            </Typography>
-            <h5>Apr 2023 - Present</h5>
-          </Box>
+          <InfoHolder>
+            <span>
+              <Typography sx={{fontWeight: '800', fontSize: '18px'}}>CommandLink</Typography>
+              <Typography sx={{fontSize: '16px', fontWeight: '400'}}>Software Engineer</Typography>
+            </span>
+            <Typography sx={{fontWeight: '600', fontSize: '14px'}}>Apr 2023 - Present</Typography>
+          </InfoHolder>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
             <Typography>Worked with React, PHP, JavaScript, JQuery, CSS, and HTML</Typography>
             <h4>Projects</h4>
@@ -50,13 +84,14 @@ const ResumePage = () => {
         </ResumeCard>
 
         <ResumeCard>
-          <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography sx={{display: 'flex', gap: '1ch'}}>
-              <h3 style={{fontWeight: '800'}}>University of Washington</h3>
-              <h4 style={{fontWeight: '400'}}>Teacher&apos;s Assistant</h4>
-            </Typography>
-            <h5>Mar 2022 - Jun 2022</h5>
-          </Box>
+          <InfoHolder>
+            <span>
+              <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington</Typography>
+              <Typography sx={{fontSize: '16px', fontWeight: '400'}}>Teaching Assistant</Typography>
+            </span>
+            <Typography sx={{fontWeight: '600', fontSize: '14px'}}>Mar 2022 - Jun 2022</Typography>
+
+          </InfoHolder>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
             <Typography>Help tutor over 30 students and answer questions & explain OOP concepts</Typography>
             <Typography>Grade student homework assignments and exams, as well as providing 1-on-1 support for students</Typography>
@@ -64,13 +99,14 @@ const ResumePage = () => {
         </ResumeCard>
 
         <ResumeCard>
-          <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-            <Typography sx={{display: 'flex', gap: '1ch'}}>
-              <h3 style={{fontWeight: '800'}}>Kennelly Keys</h3>
-              <h4 style={{fontWeight: '400'}}>Instrument Processing</h4>
-            </Typography>
-            <h5>Jun 2020 - Mar 2023</h5>
-          </Box>
+          <InfoHolder>
+           <span>
+              <Typography sx={{fontWeight: '800', fontSize: '18px'}}>Kennelly Keys</Typography>
+              <Typography sx={{fontSize: '16px', fontWeight: '400'}}>Instrument Processing</Typography>
+            </span>
+            <Typography sx={{fontWeight: '600', fontSize: '14px'}}>Jun 2020 - Mar 2023</Typography>
+
+          </InfoHolder>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
             <Typography>Cleaned and processed instruments for sale</Typography>
             <Typography>Work with others to maintain quality control of instruments being processed</Typography>
