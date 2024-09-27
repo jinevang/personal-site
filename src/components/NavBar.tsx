@@ -28,6 +28,7 @@ const StyledNavBar = styled(AppBar)({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: '3ch',
     backgroundColor: colors.basicBlue.default,
     transition: '0.5s normal',
