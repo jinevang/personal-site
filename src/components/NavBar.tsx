@@ -31,6 +31,9 @@ const StyledNavBar = styled(AppBar)({
     alignItems: 'center',
     padding: '3ch',
     backgroundColor: colors.basicBlue.default,
+    ":active": {
+    backgroundColor: colors.basicBlue.default,
+    },
     transition: '0.5s normal',
     fontSize: '18px',
     height: '10vh',

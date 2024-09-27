@@ -36,7 +36,7 @@ const InfoHolder = styled(Box)({
   [theme.breakpoints.down('md')]: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignContent: 'flex-start',
+    alignContent: 'end',
     'span': {
       display: 'flex',
       flexDirection: 'column',
@@ -68,7 +68,7 @@ const ResumePage = () => {
               <Typography sx={{fontWeight: '800', fontSize: '18px'}}>CommandLink</Typography>
               <Typography sx={{fontSize: '16px', fontWeight: '400'}}>Software Engineer</Typography>
             </span>
-            <Typography sx={{fontWeight: '600', fontSize: '14px'}}>Apr 2023 - Present</Typography>
+            <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Apr 2023 - Present</Typography>
           </InfoHolder>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
             <Typography>Worked with React, PHP, JavaScript, JQuery, CSS, and HTML</Typography>
@@ -89,7 +89,7 @@ const ResumePage = () => {
               <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington</Typography>
               <Typography sx={{fontSize: '16px', fontWeight: '400'}}>Teaching Assistant</Typography>
             </span>
-            <Typography sx={{fontWeight: '600', fontSize: '14px'}}>Mar 2022 - Jun 2022</Typography>
+            <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Mar 2022 - Jun 2022</Typography>
 
           </InfoHolder>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
@@ -104,7 +104,7 @@ const ResumePage = () => {
               <Typography sx={{fontWeight: '800', fontSize: '18px'}}>Kennelly Keys</Typography>
               <Typography sx={{fontSize: '16px', fontWeight: '400'}}>Instrument Processing</Typography>
             </span>
-            <Typography sx={{fontWeight: '600', fontSize: '14px'}}>Jun 2020 - Mar 2023</Typography>
+            <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Jun 2020 - Mar 2023</Typography>
 
           </InfoHolder>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
