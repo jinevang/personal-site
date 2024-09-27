@@ -1,32 +1,34 @@
 import React from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Grid2 as Grid, Typography } from '@mui/material';
 import { theme } from 'styles/BasicTheme';
 import styled from '@emotion/styled';
 
 const ResumeCard = styled(Box)({
   borderRadius: '5px',
-  padding: '2ch 4ch',
-  paddingBottom: '4ch',
+  padding: '3ch 4ch',
   maxWidth: '75ch',
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-
-  [theme.breakpoints.down('md')]: {
-
+  '& p': {
+    fontFamily: 'inherit',
+  },
+  [theme.breakpoints.up('md')]: {
+    'li': {
+      listStyleType: 'none'
+    }
   }
 });
 
 const InfoHolder = styled(Box)({
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'flex-start',
+  alignItems: 'start',
   [theme.breakpoints.up('md')]: {
     'span': {
       display: 'flex',
       gap: '1ch',
       alignItems: 'center',
-      paddingBottom: '1ch'
-    }
+    },
   },
 
   'p': {
@@ -36,7 +38,8 @@ const InfoHolder = styled(Box)({
   [theme.breakpoints.down('md')]: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignContent: 'end',
+    alignContent: 'start',
+    alignItems: 'baseline',
     'span': {
       display: 'flex',
       flexDirection: 'column',
@@ -45,21 +48,60 @@ const InfoHolder = styled(Box)({
   }
 })
 
+const StyledResumePage = styled(Box)({
+  [theme.breakpoints.down('md')]: {
+    'h2': {
+      textAlign: 'center',
+    }
+  }
+})
 
 const ResumePage = () => {
   return(
-    <div>
+    <StyledResumePage>
       <h1>Resume</h1>
       <h2>Skills</h2>
-      <p><i>Languages:</i> JavaScript, JQuery, HTML, CSS, Bash, React, Typescript, SQL, Java, C++, C, PHP</p>
-      <p><i>Tools:</i> Visual Studio Code, GitHub, Lucid Chart, Linux, MariaDB, Docker</p>
-
+      <ResumeCard>
+          <Typography fontWeight={600}>Languages</Typography>
+          <Typography>JavaScript, JQuery, HTML, CSS, Bash, React, Typescript, SQL, Java, C++, C, PHP</Typography>
+          <br/>
+          <Typography fontWeight={600}>Tools and Frameworks</Typography>
+          <Typography>Visual Studio Code, GitHub, Lucid Chart, Linux, MariaDB, Docker, MUI</Typography>
+          <br/>
+          <Typography fontWeight={600}>Other Skills</Typography>
+          <Typography>Languages (non coding): English, Mandarin Chinese 中文</Typography>
+          <Typography>Soft: Communication, leadership, collaboration</Typography>
+      </ResumeCard>
+      <br/>
       <h2>Education</h2>
-      <p>University of Washington, Bothell</p>
-      <p>Sep 2021 - Jun 2024</p>
-      <p>BS in Computer Science & Software Engineering</p>
-      <p>GPA: 3.5; Deans List</p>
+      <ResumeCard>
+        <InfoHolder>
+            <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington, Bothell</Typography>
+            <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Sep 2021 - Jun 2024</Typography>
+      </InfoHolder>
+      <br/>
+      <Typography>BS in Computer Science & Software Engineering</Typography>
+      <Typography>GPA: 3.5; Deans List</Typography>
+      <br/>
+      <Typography fontWeight={700}>Relevant Coursework</Typography>
+      <Grid container spacing={2}>
+        <Grid size='grow'><Typography fontSize={14}>Data Structures & Algorithms I & II</Typography></Grid>
+        <Grid size='grow'><Typography fontSize={14}>Analysis & Design</Typography></Grid>
+        <Grid size='grow'><Typography fontSize={14}>Operating Systems</Typography></Grid>
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid size='grow'><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
+        <Grid size='grow'><Typography fontSize={14}>Technical Writing</Typography></Grid>
+        <Grid size='grow'><Typography fontSize={14}>Software Engineering</Typography></Grid>
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid size='grow'><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
+        <Grid size='grow'><Typography fontSize={14}>Cloud Computing</Typography></Grid>
+        <Grid size='grow'><Typography fontSize={14}>Hardware Organization</Typography></Grid>
+      </Grid>
+      </ResumeCard>
 
+      <br/>
       <h2>Experience</h2>
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '3ch'}}>
         <ResumeCard>
@@ -70,16 +112,18 @@ const ResumePage = () => {
             </span>
             <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Apr 2023 - Present</Typography>
           </InfoHolder>
+          <br/>
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
             <Typography>Worked with React, PHP, JavaScript, JQuery, CSS, and HTML</Typography>
             <h4>Projects</h4>
-            <Typography>Helped build front end for new alerting/escalation system and knowledgebase.<br/>
-            Built custom React components and robust testing suites <br/> 
-            Performed visual site cleanup, design, and several Quality-of-Life updates</Typography>
-            <h4>Other Responsibilities</h4>
-            <Typography>Followed Agile Process and worked on both self-assigned and assigned software tickets</Typography>
-            <Typography>Implemented a new system to format international telephone numbers</Typography>
-            <Typography>Participated in daily standups, story estimation, design meetings, team retros, and sprint demos</Typography>
+            <Typography><li>Contributed to the front-end development of new software products and internal tools using React and MUI</li></Typography>
+            <Typography><li>Developed custom React components and comprehensive testing suites</li></Typography>
+            <Typography><li>Played a key role in creating new React codebase, transitioning legacy PHP code to modern React designs</li></Typography>
+
+            <h4>Responsibilities</h4>
+            <Typography><li>Followed Agile methodologies, managing both self-assigned and team-assigned tickets</li></Typography>
+            <Typography><li>Actively participated in daily standups, story estimations, design meetings, team retros, and sprint demos</li></Typography>
+            <Typography><li>Provided detailed code reviews, with constructive feedback to peers</li></Typography>
           </Box>
         </ResumeCard>
 
@@ -92,9 +136,11 @@ const ResumePage = () => {
             <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Mar 2022 - Jun 2022</Typography>
 
           </InfoHolder>
+          <br/>
+
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
-            <Typography>Help tutor over 30 students and answer questions & explain OOP concepts</Typography>
-            <Typography>Grade student homework assignments and exams, as well as providing 1-on-1 support for students</Typography>
+            <Typography><li>Tutored over 30 students and answer questions & explain OOP concepts</li></Typography>
+            <Typography><li>Graded student homework assignments and exams, as well as providing 1-on-1 support for students</li></Typography>
           </Box>
         </ResumeCard>
 
@@ -107,13 +153,15 @@ const ResumePage = () => {
             <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Jun 2020 - Mar 2023</Typography>
 
           </InfoHolder>
+          <br/>
+
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
-            <Typography>Cleaned and processed instruments for sale</Typography>
-            <Typography>Work with others to maintain quality control of instruments being processed</Typography>
+            <Typography><li>Cleaned and processed instruments for sale</li></Typography>
+            <Typography><li>Work with others to maintain quality control of instruments being processed</li></Typography>
           </Box>
         </ResumeCard>
       </Box>
-    </div>
+    </StyledResumePage>
   );
 };
 
