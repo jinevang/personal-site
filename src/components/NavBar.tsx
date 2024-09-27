@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { AppBar, Grow, ThemeProvider } from '@mui/material';
 import { colors } from 'constants/colors';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { theme } from 'styles/BasicTheme';
 
 const StyledNavBar = styled(AppBar)({
@@ -50,6 +50,7 @@ const StyledNavBar = styled(AppBar)({
   boxShadow: 'none',
   
   'a': {
+    color: colors.basicBlue.darker,
     textDecoration: 'none',
     backgroundColor: 'none',
     ":focus": {
@@ -57,6 +58,7 @@ const StyledNavBar = styled(AppBar)({
     },
     ":hover": {
       textDecoration: 'underline',
+      cursor: 'pointer',
     },
     ":active": {
       textDecoration: 'underline',
@@ -70,15 +72,42 @@ const StyledNavBar = styled(AppBar)({
   }
 });
 
+const navItems = [
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Resume',
+    href:'/resume',
+  },
+  {
+    label: 'Photos',
+    href: '/photos',
+  },
+  {
+    label: 'Music',
+    href: '/music'  
+  },
+  {
+    label: 'About',
+    href: '/about'
+  }
+]
+
 const NavBar = () => {
 
+  const navigate = useNavigate();
+
+  const navToRoute = (route: string) => {
+    navigate(route);
+  }
+
   return(<StyledNavBar>
-    
-    <a href='/'>Home</a>
-    <a href='/resume'>Resume</a>
-    <a href='/photos'>Photos</a>
-    <a href='/music'>Music</a>
-    <a href='/about'>About</a>
+    {navItems.map((item) => (
+      <a key={item.href} onClick={() => {navToRoute(item.href)}}>{item.label}</a>
+    ))}
+
   </StyledNavBar>
   );
 };
