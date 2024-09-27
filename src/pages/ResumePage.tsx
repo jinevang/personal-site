@@ -76,7 +76,7 @@ const ResumePage = () => {
       <h2>Education</h2>
       <ResumeCard>
         <InfoHolder>
-            <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington, Bothell</Typography>
+            <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington</Typography>
             <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Sep 2021 - Jun 2024</Typography>
       </InfoHolder>
       <br/>
@@ -84,20 +84,16 @@ const ResumePage = () => {
       <Typography>GPA: 3.5; Deans List</Typography>
       <br/>
       <Typography fontWeight={700}>Relevant Coursework</Typography>
-      <Grid container spacing={2}>
-        <Grid size='grow'><Typography fontSize={14}>Data Structures & Algorithms I & II</Typography></Grid>
-        <Grid size='grow'><Typography fontSize={14}>Analysis & Design</Typography></Grid>
-        <Grid size='grow'><Typography fontSize={14}>Operating Systems</Typography></Grid>
-      </Grid>
-      <Grid container spacing={2}>
-        <Grid size='grow'><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
-        <Grid size='grow'><Typography fontSize={14}>Technical Writing</Typography></Grid>
-        <Grid size='grow'><Typography fontSize={14}>Software Engineering</Typography></Grid>
-      </Grid>
-      <Grid container spacing={2}>
-        <Grid size='grow'><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
-        <Grid size='grow'><Typography fontSize={14}>Cloud Computing</Typography></Grid>
-        <Grid size='grow'><Typography fontSize={14}>Hardware Organization</Typography></Grid>
+      <Grid container spacing={2} columns={{md: 18, sm: 12}}>
+        <Grid size={6}><Typography fontSize={14}>Data Structures & Algorithms I & II</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Analysis & Design</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Operating Systems</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Technical Writing</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Software Engineering</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Cloud Computing</Typography></Grid>
+        <Grid size={6}><Typography fontSize={14}>Hardware Organization</Typography></Grid>
       </Grid>
       </ResumeCard>
 
