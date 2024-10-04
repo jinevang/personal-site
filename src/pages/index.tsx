@@ -41,8 +41,8 @@ const IndexPage = () => {
         Hi, I&apos;m Evan Jin! I am a Software Engineer based in Seattle, WA!
       </CustomBox>
       <CustomBox backgroundColor='lightgray' height='20vh'>Hello</CustomBox>
-      <CustomBox backgroundColor='lightgray' height='fit-content'><img src={require('../assets/malatang.png')}/><caption>One of my favorite foods to eat near here - Spicy Malatang</caption></CustomBox>
-      <CustomBox backgroundColor='lightgray' height='fit-content'><img src={require('../assets/lemon_boulder.jpg')}/><caption>Rock climbing!</caption></CustomBox>
+      <CustomBox backgroundColor='lightgray' height='fit-content'><img src={require('../assets/malatang.png')} loading='lazy'/><caption>One of my favorite foods to eat near here - Spicy Malatang</caption></CustomBox>
+      <CustomBox backgroundColor='lightgray' height='fit-content'><img src={require('../assets/lemon_boulder.jpg')} loading='lazy'/><caption>Rock climbing!</caption></CustomBox>
       <CustomBox backgroundColor='lightgray' height='25vh'>
     <IoIosMail/>
 <Mailto email="jinevang@gmail.com" subject="" body="">
