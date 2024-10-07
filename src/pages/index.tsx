@@ -1,5 +1,4 @@
 import React from 'react';
-import CustomBox from 'components/CustomBox';
 import { Box, Grid2 as Grid, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
@@ -26,6 +25,27 @@ const GalleryBox = styled(Box)({
 
   [theme.breakpoints.down('md')]: {
     flexWrap: 'nowrap'
+  }
+})
+
+const CustomBox = styled(Box)<{backgroundColor: string}>({
+  borderRadius: '5px',
+  width: '25ch',
+  padding: '1ch',
+
+  display: 'flex',
+  flexDirection: 'column',
+  alignContent: 'center',
+  gap: '0.5ch',
+
+  '& img': {
+    width: '100%',
+    borderRadius: '5px'
+  },
+
+  [theme.breakpoints.down('md')]: {
+      width: '90%'
+    
   }
 })
 
