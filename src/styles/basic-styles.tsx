@@ -15,7 +15,6 @@ export const StyledCenter = styled(Box)({
     right: '25vw',
     width: '70%',
     left: '25vw',
-    paddingBottom: '25px',
     alignItems: 'top',
   },
 

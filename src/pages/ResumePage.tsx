@@ -53,7 +53,8 @@ const StyledResumePage = styled(Box)({
     'h2': {
       textAlign: 'center',
     }
-  }
+  },
+  paddingBottom: '10rem'
 })
 
 const ResumePage = () => {

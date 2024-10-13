@@ -10,6 +10,7 @@ const StyledMusicPage = styled(Box)({
     },
     width: '90vw'
   },
+  paddingBottom: '10rem'
 })
 
 
