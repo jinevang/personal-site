@@ -8,7 +8,7 @@ export const StyledCenter = styled(Box)({
   top: '10%',
   gap: '100px',
   
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     marginLeft: '-50px',
     display: 'flex',
     justifyContent: 'space-between',
@@ -18,7 +18,7 @@ export const StyledCenter = styled(Box)({
     alignItems: 'top',
   },
 
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     top: '12vh',
     display: 'flex',
     flexDirection: 'column',

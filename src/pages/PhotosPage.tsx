@@ -11,7 +11,7 @@ const ImageList = styled(Box)({
   '& img': {
     maxWidth: '60vw',
     borderRadius: '8px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: '100vw',
       padding: 0,
       margin: 0,
@@ -19,7 +19,7 @@ const ImageList = styled(Box)({
   },
 
   '& label': {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       alignItems: 'center',
       alignContent: 'center',
       display: 'flex',
@@ -30,7 +30,7 @@ const ImageList = styled(Box)({
 })
 
 const StyledPhotosPage = styled(Box)({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     'h1': {
       display: 'flex',
       justifyContent: 'center'

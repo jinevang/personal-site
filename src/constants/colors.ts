@@ -1,5 +1,6 @@
 export const colors = {
   basicBlue: {
+    light: '#DDEFFF',
     default: '#b0d9fc',
     dark: '#86C6FE',
     darker: '#3aa2f8',

@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
         <NavBar/>
-      <StyledCenter>
+      <StyledCenter id='styledCenter'>
         <PageWrapper>
             <Routes>
               <Route path='' element={<IndexPage/>}/>

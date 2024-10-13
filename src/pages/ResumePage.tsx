@@ -12,7 +12,7 @@ const ResumeCard = styled(Box)({
   '& p': {
     fontFamily: 'inherit',
   },
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     'li': {
       listStyleType: 'none'
     }
@@ -23,7 +23,7 @@ const InfoHolder = styled(Box)({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'start',
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     'span': {
       display: 'flex',
       gap: '1ch',
@@ -35,7 +35,7 @@ const InfoHolder = styled(Box)({
     fontFamily: 'inherit'
   },
 
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     display: 'flex',
     justifyContent: 'space-between',
     alignContent: 'start',
@@ -49,7 +49,7 @@ const InfoHolder = styled(Box)({
 })
 
 const StyledResumePage = styled(Box)({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     'h2': {
       textAlign: 'center',
     }
@@ -67,7 +67,7 @@ const ResumePage = () => {
           <Typography>JavaScript, JQuery, HTML, CSS, Bash, React, Typescript, SQL, Java, C++, C, PHP</Typography>
           <br/>
           <Typography fontWeight={600}>Tools and Frameworks</Typography>
-          <Typography>Visual Studio Code, GitHub, Lucid Chart, Linux, MariaDB, Docker, MUI</Typography>
+          <Typography>Visual Studio Code, GitHub, Lucid Chart, Linux, MariaDB, Docker, MUI, Jenkins CI/CD</Typography>
           <br/>
           <Typography fontWeight={600}>Other Skills</Typography>
           <Typography>Languages (non coding): English, Mandarin Chinese 中文</Typography>
@@ -136,7 +136,7 @@ const ResumePage = () => {
           <br/>
 
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
-            <Typography><li>Tutored over 30 students and answer questions & explain OOP concepts</li></Typography>
+            <Typography><li>Tutored over 30 students, answer questions & explain OOP concepts</li></Typography>
             <Typography><li>Graded student homework assignments and exams, as well as providing 1-on-1 support for students</li></Typography>
           </Box>
         </ResumeCard>

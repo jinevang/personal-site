@@ -11,7 +11,7 @@ const StyledNavBar = styled(AppBar)({
     backgroundColor: 'transparent',
   },
 
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     display: 'flex',
     flexDirection: 'column',
     gap: '2ch',
@@ -24,7 +24,7 @@ const StyledNavBar = styled(AppBar)({
     backgroundColor: 'transparent',
   },
 
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

@@ -4,7 +4,7 @@ import React from 'react';
 import { theme } from 'styles/BasicTheme';
 
 const StyledMusicPage = styled(Box)({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     'iframe': {
       width: '100%'
     },
