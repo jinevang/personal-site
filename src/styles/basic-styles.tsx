@@ -27,6 +27,7 @@ export const StyledCenter = styled(Box)({
     alignItems: 'center',
     padding: '0 2ch',
     left: 0,
+    width: '100%',
     marginLeft: 0,
     'h1': {
       display: 'flex',
