@@ -105,7 +105,7 @@ const IndexPage = () => {
         <Typography sx={{fontSize: 120, fontWeight: 500, fontFamily: 'inherit'}}>
           Hello!
         </Typography>
-        <Masonry columns={{lg: 3, md: 2, s: 1}} spacing={2} sequential>
+        <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential>
 
           <CustomBox backgroundColor={colors.basicBlue.light} height='15vh' >
             <Typography fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
