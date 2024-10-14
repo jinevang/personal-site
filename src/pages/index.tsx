@@ -23,6 +23,7 @@ const StyledIndexPage = styled(Box)({
 const Me = styled(Box)({
   [theme.breakpoints.down('lg')]: {
     '& img': {
+      display: 'none',
       position: 'fixed',
       width: '20%',
       left: '1rem',
@@ -99,12 +100,12 @@ const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ 
 const IndexPage = () => {
 
   return(
-    <StyledIndexPage>
+    <StyledIndexPage id='styledIndexPage'>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignContent: 'center', width: '100%'}}>
         <Typography sx={{fontSize: 120, fontWeight: 500, fontFamily: 'inherit'}}>
           Hello!
         </Typography>
-        <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential>
+        <Masonry columns={{lg: 3, md: 2, s: 1}} spacing={2} sequential>
 
           <CustomBox backgroundColor={colors.basicBlue.light} height='15vh' >
             <Typography fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
@@ -115,7 +116,7 @@ const IndexPage = () => {
             <Typography>Rock climbing!</Typography>
           </CustomBox>
           <CustomBox backgroundColor={colors.basicBlue.light} height='20vh'>
-              <Typography fontSize={16}>
+              <Typography fontSize={14}>
                 I love making music and taking photos - take a look at the other pages on the site if you&apos;d like!
               </Typography>
           </CustomBox>

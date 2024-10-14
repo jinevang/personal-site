@@ -24,7 +24,6 @@ function App() {
     <BrowserRouter>
         <NavBar/>
       <StyledCenter id='styledCenter'>
-        <PageWrapper>
             <Routes>
               <Route path='' element={<IndexPage/>}/>
               <Route path='/' element={<IndexPage/>}/>
@@ -35,7 +34,6 @@ function App() {
               <Route path='*' element={<ErrorPage/>}/>
               <Route path='drinks' element={<DrinkRatingsPage/>}/>
             </Routes>
-        </PageWrapper>
       </StyledCenter>
       {/* <Footer/> */}
     </BrowserRouter>
