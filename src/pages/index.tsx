@@ -12,7 +12,7 @@ const StyledIndexPage = styled(Box)({
   flexDirection: 'column',
   alignItems: 'center',
   justifyItems: 'center',
-  height: '90vh',
+  height: '90vh', 
 
   [theme.breakpoints.down('lg')]: {
     width: '95%',

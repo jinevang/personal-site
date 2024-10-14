@@ -5,7 +5,7 @@ import { theme } from './BasicTheme';
 
 export const StyledCenter = styled(Box)({
   position: 'absolute',
-  top: '10%',
+  top: '3%',
   gap: '100px',
   
   [theme.breakpoints.up('lg')]: {
