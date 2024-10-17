@@ -54,6 +54,8 @@ const PhotosPage = () => {
       <label><i>Eiffel Through Trees</i> - 2024</label>
       <Box component='img' src={require('../assets/paris_split.png')} loading='lazy' width={'100%'}></Box>
       <label><i>Split View </i>- 2024</label>
+      <Box component='img' src={require('../assets/cinque_terre.png')} loading='lazy' width={'100%'}></Box>
+      <label><i>Vernazza, Cinque Terre</i> - 2024</label>
       <Box component='img' src={require('../assets/paris_corner.png')} loading='lazy' width={'100%'}></Box>
       <label><i>Cornerside Dinner</i> - 2024</label>
       <Box component='img' src={require('../assets/venice_quiet.png')} loading='lazy' width={'100%'}></Box>
