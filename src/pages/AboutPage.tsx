@@ -18,6 +18,10 @@ const StyledAbout = styled(Box)({
     width: '90vw',
   },
 
+  'a:visited': {
+    color: 'inherit',
+  },
+
   [theme.breakpoints.up('lg')]: {
     paddingTop: '20vh'
   }

@@ -6,9 +6,12 @@ import { theme } from 'styles/BasicTheme';
 const StyledMusicPage = styled(Box)({
   [theme.breakpoints.down('lg')]: {
     'iframe': {
-      width: '100%'
+      width: '100%',
     },
     width: '90vw'
+  },
+  'iframe': {
+    border: 'none',
   },
   paddingBottom: '10rem'
 })

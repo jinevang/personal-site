@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
-import { AppBar, Grow, ThemeProvider } from '@mui/material';
+import { Toolbar, useTheme } from '@mui/material';
 import { colors } from 'constants/colors';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { theme } from 'styles/BasicTheme';
 
-const StyledNavBar = styled(AppBar)({
+const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ textColor, bgColor }) =>({
   backgroundColor: 'transparent',
   ":active": {
     backgroundColor: 'transparent',
@@ -16,6 +16,7 @@ const StyledNavBar = styled(AppBar)({
     flexDirection: 'column',
     gap: '2ch',
     position: 'fixed',
+    alignItems: 'center',
   
     left: '10ch',
     top: '40vh',
@@ -23,6 +24,7 @@ const StyledNavBar = styled(AppBar)({
     width: 'fit-content',
     backgroundColor: 'transparent',
   },
+  zIndex: 1,
 
   [theme.breakpoints.down('lg')]: {
     display: 'flex',
@@ -30,9 +32,11 @@ const StyledNavBar = styled(AppBar)({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '3ch',
-    backgroundColor: colors.basicBlue.default,
+    position: 'fixed',
+    width: '100vw',
+    backgroundColor: bgColor ?? colors.basicBlue.default,
     ":active": {
-    backgroundColor: colors.basicBlue.default,
+    backgroundColor: bgColor ?? colors.basicBlue.default,
     },
     transition: '0.5s normal',
     fontSize: '18px',
@@ -49,12 +53,13 @@ const StyledNavBar = styled(AppBar)({
 
   boxShadow: 'none',
   
-  'a': {
-    color: colors.basicBlue.darker,
+  '& a': {
+    color: textColor??colors.basicBlue.darkest,
     textDecoration: 'none',
-    backgroundColor: 'none',
+    backgroundColor: 'transparent',
+    textAlign: 'left',
     ":focus": {
-      backgroundColor: 'none',
+      backgroundColor: 'transparent',
     },
     ":hover": {
       textDecoration: 'underline',
@@ -70,7 +75,7 @@ const StyledNavBar = styled(AppBar)({
       color: colors.basicBlue.darker
     }
   }
-});
+}));
 
 const navItems = [
   {
@@ -98,12 +103,12 @@ const navItems = [
 const NavBar = () => {
 
   const navigate = useNavigate();
-
+  const theme = useTheme();
   const navToRoute = (route: string) => {
     navigate(route);
   }
 
-  return(<StyledNavBar>
+  return(<StyledNavBar textColor={theme.palette.secondary.contrastText} bgColor={theme.palette.primary.main}>
     {navItems.map((item) => (
       <a key={item.href} onClick={() => {navToRoute(item.href)}}>{item.label}</a>
     ))}

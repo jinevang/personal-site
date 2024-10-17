@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 // Components
-import { Box, Link, Typography } from '@mui/material';
+import { Box, Link, Typography, useTheme } from '@mui/material';
 import { Masonry } from '@mui/lab';
 
 // Icons, Themes, Colors
@@ -51,7 +51,7 @@ const Mailto = ({ email, subject, body, children }: any) => {
 
 const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ backgroundColor, image }) => ({
   borderRadius: '5px',
-  width: '25ch',
+  width: !image && '30ch' || '32ch',
   padding: image && '0ch' || '1ch',
   display: 'flex',
   justifyContent: 'center',
@@ -62,7 +62,7 @@ const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ 
   justifyItems: 'center',
 
 
-  backgroundColor: backgroundColor || 'white',
+  backgroundColor: backgroundColor || 'transparent',
 
   backgroundSize: 'cover',
   '& a': {
@@ -79,10 +79,6 @@ const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ 
     borderRadius: '5px',
   },
 
-  ':hover': {
-    boxShadow: 'inset 100vh 100vw #ebeff5',
-  },
-
   [theme.breakpoints.down('lg')]: {
     width: '90%',
   },
@@ -92,31 +88,35 @@ const IndexPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const themeUser = useTheme();
+  const textColor = themeUser.palette.primary.contrastText;
+
   return(
     <StyledIndexPage id='styledIndexPage'>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', alignContent: 'center', width: '100%'}}>
-        <Typography sx={{fontSize: 110, fontWeight: 500, fontFamily: 'inherit', [theme.breakpoints.down('lg')]: {
-          display: 'none',
+        <Typography sx={{color: textColor, fontSize: 110, fontWeight: 500, fontFamily: 'inherit', [theme.breakpoints.down('lg')]: {
+          display: 'none'
         }}}>
           Hello!
         </Typography>
         <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential sx={{maxHeight: 'fit-content'}}>
 
           <CustomBox backgroundColor={colors.basicBlue.light} height='15vh' >
-            <Typography fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
+            <Typography color='#111110'fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
           </CustomBox>
 
           <CustomBox backgroundColor='' height='fit-content' image={true} key={3}>
             <img src={require('../assets/rock_climbing.jpg')} loading='lazy'/>
-            <Typography>Rock climbing</Typography>
+            <Typography color={textColor}>Rock climbing</Typography>
           </CustomBox>
           <CustomBox backgroundColor={colors.basicBlue.light} height='20vh'>
-              <Typography fontSize={14}>
-                I love making music and taking photos - take a look at the other pages on the site if you&apos;d like!
+              <Typography color='#111110' fontSize={14}>
+                I love and taking photos and making music  - take a look at the other pages on the site if you&apos;d like!
               </Typography>
           </CustomBox>
           <CustomBox backgroundColor='' image={true}>
-            <img src={require('../assets/hiking.png')} loading='lazy'/><Typography>Hiking around the PNW</Typography>
+            <img src={require('../assets/hiking.png')} loading='lazy'/><Typography color={textColor}>Hiking around the PNW</Typography>
           </CustomBox>
 
           <CustomBox backgroundColor={colors.basicBlue.light} height='10vh'>
@@ -126,7 +126,7 @@ const IndexPage = () => {
               </CustomBox>
           <CustomBox backgroundColor='' height='fit-content' image={true}>
             <img src={require('../assets/piano.jpg')} loading='lazy'/>
-            <Typography fontSize={14}>Playing piano</Typography>
+            <Typography color={textColor} fontSize={14}>Playing piano</Typography>
           </CustomBox>
 
 

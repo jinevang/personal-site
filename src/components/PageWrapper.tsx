@@ -1,8 +1,11 @@
  import React from "react";
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 
 const PageWrapper = ({children}: any) => {
-  return <Box sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+
+  const theme = useTheme();
+
+  return <Box sx={{backgroundColor: theme.palette.background.default, minHeight: '100vh', height: '100vh'}}>
     {children}
     </Box>;
 };

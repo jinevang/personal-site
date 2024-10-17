@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Components
@@ -17,13 +17,38 @@ import MusicPage from 'pages/MusicPage';
 import Footer from 'components/Footer';
 import PageWrapper from 'components/PageWrapper';
 import DrinkRatingsPage from 'pages/DrinkRatingsPage';
-import { Box } from '@mui/material';
+import { Box, CssBaseline, Switch, ThemeProvider, useMediaQuery, useTheme } from '@mui/material';
+import { darkTheme, lightTheme, theme } from 'styles/BasicTheme';
+
+import { FaMoon } from 'react-icons/fa6';
 
 function App() {
+
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
+  
+  const handleThemeChange = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('darkMode', JSON.stringify(newMode));
+  };
+  
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+  
   return (
-    <BrowserRouter>
-        <NavBar/>
-      <StyledCenter id='styledCenter'>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <CssBaseline/>
+      <PageWrapper>
+        <BrowserRouter>
+          <NavBar/>
+          <Box sx={{display: 'flex', alignItems: 'center', position: 'fixed', right: 0, bottom: 0, zIndex: 1, [theme.breakpoints.down('lg')]: {
+            backgroundColor: theme.palette.info.light, borderRadius: '50px', padding: '1ch', margin: '1ch' 
+          }}}><FaMoon size={20} onClick={handleThemeChange}/>
+          {!isMobile && <Switch checked={darkMode} onChange={handleThemeChange}/>}
+          </Box>
+          <StyledCenter id='styledCenter'>
             <Routes>
               <Route path='' element={<IndexPage/>}/>
               <Route path='/' element={<IndexPage/>}/>
@@ -32,11 +57,11 @@ function App() {
               <Route path='photos' element={<PhotosPage/>}/>
               <Route path='music' element={<MusicPage/>}/>
               <Route path='*' element={<ErrorPage/>}/>
-              <Route path='drinks' element={<DrinkRatingsPage/>}/>
             </Routes>
-      </StyledCenter>
-      {/* <Footer/> */}
-    </BrowserRouter>
+          </StyledCenter>
+        </BrowserRouter>
+      </PageWrapper>
+    </ThemeProvider>
   );
 }
 

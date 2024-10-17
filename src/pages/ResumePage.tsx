@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid2 as Grid, Typography } from '@mui/material';
+import { Box, Grid2 as Grid, Typography, useTheme } from '@mui/material';
 import { theme } from 'styles/BasicTheme';
 import styled from '@emotion/styled';
 
@@ -62,12 +62,16 @@ const StyledResumePage = styled(Box)({
 })
 
 const ResumePage = () => {
+  const themeUser = useTheme();
+
+  const resumeCardBackground = themeUser.palette.secondary.main;
+
   return(
     <StyledResumePage>
       <h1>Resume</h1>
       <h2>Skills</h2>
-      <ResumeCard>
-          <Typography fontWeight={600}>Languages</Typography>
+      <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
+          <Typography color='contrastText'fontWeight={600}>Languages</Typography>
           <Typography>JavaScript, JQuery, HTML, CSS, Bash, React, Typescript, SQL, Java, C++, C, PHP</Typography>
           <br/>
           <Typography fontWeight={600}>Tools and Frameworks</Typography>
@@ -79,7 +83,7 @@ const ResumePage = () => {
       </ResumeCard>
       <br/>
       <h2>Education</h2>
-      <ResumeCard>
+      <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
         <InfoHolder>
             <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington</Typography>
             <Typography sx={{fontWeight: '600', fontSize: '14px', textAlign: 'right'}}>Sep 2021 - Jun 2024</Typography>
@@ -89,7 +93,7 @@ const ResumePage = () => {
       <Typography>GPA: 3.5; Deans List</Typography>
       <br/>
       <Typography fontWeight={700}>Relevant Coursework</Typography>
-      <Grid container spacing={2} columns={{md: 18, sm: 12}}>
+      <Grid container spacing={2} columns={{md: 18, sm: 12}} >
         <Grid size={6}><Typography fontSize={14}>Data Structures & Algorithms I & II</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
         <Grid size={6}><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
@@ -105,7 +109,7 @@ const ResumePage = () => {
       <br/>
       <h2>Experience</h2>
       <Box sx={{display: 'flex', flexDirection: 'column', gap: '3ch'}}>
-        <ResumeCard>
+        <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <InfoHolder>
             <span>
               <Typography sx={{fontWeight: '800', fontSize: '18px'}}>CommandLink</Typography>
@@ -128,7 +132,7 @@ const ResumePage = () => {
           </Box>
         </ResumeCard>
 
-        <ResumeCard>
+        <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <InfoHolder>
             <span>
               <Typography sx={{fontWeight: '800', fontSize: '18px'}}>University of Washington</Typography>
@@ -145,7 +149,7 @@ const ResumePage = () => {
           </Box>
         </ResumeCard>
 
-        <ResumeCard>
+        <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <InfoHolder>
            <span>
               <Typography sx={{fontWeight: '800', fontSize: '18px'}}>Kennelly Keys</Typography>
