@@ -36,7 +36,7 @@ function App() {
   };
   
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
-  
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline/>
