@@ -45,7 +45,7 @@ function App() {
           <NavBar/>
           <Box sx={{display: 'flex', alignItems: 'center', position: 'fixed', right: 0, bottom: 0, zIndex: 1, [theme.breakpoints.down('lg')]: {
             backgroundColor: theme.palette.info.light, borderRadius: '50px', padding: '1ch', margin: '1ch' 
-          }}}><FaMoon size={20} onClick={handleThemeChange}/>
+          }}}><FaMoon style={{borderRadius: '50px'}}size={20} onClick={handleThemeChange}/>
           {!isMobile && <Switch checked={darkMode} onChange={handleThemeChange}/>}
           </Box>
           <StyledCenter id='styledCenter'>
