@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // Components
 import { Box, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -21,7 +21,6 @@ const StyledIndexPage = styled(Box)({
 
   [theme.breakpoints.down('lg')]: {
     width: '95%',
-    paddingTop: '3vh',
   }
 })
 
@@ -50,8 +49,11 @@ const Mailto = ({ email, subject, body, children }: any) => {
 };
 
 const CustomBox = styled(Box)<{ $backgroundColor?: string; $image?: boolean }>(({ $backgroundColor, $image }) => ({
+  [theme.breakpoints.up('lg')]: {
+
+    width: !$image && '30ch' || '32ch',
+  },
   borderRadius: '5px',
-  width: !$image && '30ch' || '32ch',
   padding: $image && '0ch' || '1ch',
   display: 'flex',
   justifyContent: 'center',
@@ -60,11 +62,15 @@ const CustomBox = styled(Box)<{ $backgroundColor?: string; $image?: boolean }>((
   gap: '0.5ch',
   alignItems: 'center',
   justifyItems: 'center',
-
+  overflow: 'hidden',
 
   backgroundColor: $backgroundColor || 'transparent',
 
   backgroundSize: 'cover',
+  '& video': {
+    borderRadius: '5px',
+    width: '100%',
+  },
   '& a': {
     color: colors.basicBlue.darkest,
     textDecoration: 'none'
@@ -79,9 +85,13 @@ const CustomBox = styled(Box)<{ $backgroundColor?: string; $image?: boolean }>((
     borderRadius: '5px',
   },
 
-  [theme.breakpoints.down('lg')]: {
+  [theme.breakpoints.down('sm')]: {
     width: '90%',
   },
+
+  [theme.breakpoints.between('sm', 'md')]: {
+    width: '50%',
+  }
 }));
 
 const IndexPage = () => {
@@ -90,6 +100,18 @@ const IndexPage = () => {
   }, []);
 
   const themeUser = useTheme();
+  const videoRef = useRef(null);
+
+  const handleClick = () => {
+    if (videoRef.current) {
+      if(videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   const textColor = themeUser.palette.primary.contrastText;
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
@@ -101,7 +123,7 @@ const IndexPage = () => {
         }}}>
           Hello!
         </Typography>
-        <Masonry columns={{lg: 3, md: 2, sm: 1}} sequential={!isMobile} spacing={2} sx={{maxHeight: 'fit-content'}}>
+        <Masonry columns={{lg: 3, sm: 2, xs: 1}} sequential={!isMobile} spacing={2} sx={{maxHeight: 'fit-content'}}>
 
           <CustomBox $backgroundColor={colors.basicBlue.light} height='15vh' >
             <Typography color='#111110'fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
@@ -111,8 +133,8 @@ const IndexPage = () => {
             <img src={require('../assets/rock_climbing.jpg')} loading='lazy'/>
             <Typography color={textColor}>Rock climbing</Typography>
           </CustomBox>
-          <CustomBox $backgroundColor={colors.basicBlue.light} height='20vh'>
-              <Typography color='#111110' fontSize={14}>
+          <CustomBox $backgroundColor={colors.basicBlue.light} height='15vh'>
+              <Typography color='#111110' fontSize={'1vw'}>
                 I love and taking photos and making music  - take a look at the other pages on the site if you&apos;d like!
               </Typography>
           </CustomBox>
@@ -120,13 +142,16 @@ const IndexPage = () => {
             <img src={require('../assets/hiking.png')} loading='lazy'/><Typography color={textColor}>Hiking around the PNW</Typography>
           </CustomBox>
 
-          <CustomBox $backgroundColor={colors.basicBlue.light} height='10vh'>
+          <CustomBox $backgroundColor={colors.basicBlue.light} height='9vh'>
           <Mailto email="jinevang@gmail.com" subject="" body="">
-                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={20}>Send me an email!</Typography></Box>
+                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={'1.5vw'}>Send me an email!</Typography></Box>
           </Mailto>
               </CustomBox>
           <CustomBox $backgroundColor='' height='fit-content' $image={true}>
-            <img src={require('../assets/piano.jpg')} loading='lazy'/>
+            <video width='100%' height='100%' ref={videoRef} onClick={handleClick} controlsList='nofullscreen nodownload' controls>
+              <source src={require('../assets/airportpiano.mp4')} type='video/mp4'/>
+            </video>
+            {/* <img src={require('../assets/piano.jpg')} loading='lazy'/> */}
             <Typography color={textColor} fontSize={14}>Playing piano</Typography>
           </CustomBox>
 

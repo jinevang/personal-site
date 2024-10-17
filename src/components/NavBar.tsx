@@ -1,9 +1,21 @@
-import styled from '@emotion/styled';
-import { Toolbar, useTheme } from '@mui/material';
-import { colors } from 'constants/colors';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
+// Components
+import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
+
+// Styles, Icons, & Colors
+import styled from '@emotion/styled';
+import { colors } from 'constants/colors';
 import { theme } from 'styles/BasicTheme';
+import { VscHome } from "react-icons/vsc";
+import { RiComputerLine } from "react-icons/ri";
+import { MdOutlinePhoto } from "react-icons/md";
+import { PiPianoKeysFill } from "react-icons/pi";
+import { IoPersonSharp } from "react-icons/io5";
+
+
+// TODO: put icons as nav with subtitles maybe
 
 const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ textColor, bgColor }) =>({
   backgroundColor: 'transparent',
@@ -35,12 +47,9 @@ const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ 
     position: 'fixed',
     width: '100vw',
     backgroundColor: bgColor ?? colors.basicBlue.default,
-    ":active": {
-    backgroundColor: bgColor ?? colors.basicBlue.default,
-    },
     transition: '0.5s normal',
     fontSize: '18px',
-    height: '10vh',
+    height: '8vh',
     '& a': {
       ":visited": {
       color: 'white',
@@ -81,36 +90,56 @@ const navItems = [
   {
     label: 'Home',
     href: '/',
+    icon: <VscHome/>
   },
   {
     label: 'Resume',
     href:'/resume',
+    icon: <RiComputerLine/>
   },
   {
     label: 'Photos',
     href: '/photos',
+    icon: <MdOutlinePhoto/>
   },
   {
     label: 'Music',
-    href: '/music'  
+    href: '/music',
+    icon: <PiPianoKeysFill/>
   },
   {
     label: 'About',
-    href: '/about'
+    href: '/about',
+    icon: <IoPersonSharp/>
   }
 ]
 
 const NavBar = () => {
-
+  
   const navigate = useNavigate();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const navToRoute = (route: string) => {
     navigate(route);
   }
 
-  return(<StyledNavBar textColor={theme.palette.secondary.contrastText} bgColor={theme.palette.primary.main}>
+  return(<StyledNavBar textColor={theme.palette.secondary.contrastText} bgColor={theme.palette.background.default}>
     {navItems.map((item) => (
-      <a key={item.href} onClick={() => {navToRoute(item.href)}}>{item.label}</a>
+      <a key={item.href} onClick={() => {navToRoute(item.href)}}>
+        <Box key={item.href} sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      fontSize: isMobile ? 12 : 18,
+      '& svg': {
+        width: '25px',
+        height: '25px',
+      }
+    }}>
+      {isMobile && item.icon}
+      {item.label}
+      </Box>
+      </a>
     ))}
 
   </StyledNavBar>

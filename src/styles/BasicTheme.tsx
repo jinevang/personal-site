@@ -24,7 +24,7 @@ export const darkTheme = createTheme({
       contrastText: '#86C6FE'
     },
     background: {
-      default: '#272626',
+      default: '#161616',
     }
   }
 });
@@ -34,7 +34,7 @@ export const lightTheme = createTheme({
     mode: 'light',
     primary: {
       main: '#b0d9fc',
-      contrastText: '#111110'
+      contrastText: '#161616'
     },
     secondary: {
       main: '#ffffff',

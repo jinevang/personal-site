@@ -18,7 +18,7 @@ export const StyledCenter = styled(Box)({
   },
 
   [theme.breakpoints.down('lg')]: {
-    top: '12vh',
+    top: '10vh',
 
     display: 'flex',
     flexDirection: 'column',
