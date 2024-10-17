@@ -8,7 +8,7 @@ import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const StyledAbout = styled(Box)({
+const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
   width: '100%',
   [theme.breakpoints.down('lg')]: {
     paddingTop: 0,
@@ -17,20 +17,30 @@ const StyledAbout = styled(Box)({
     alignItems: 'center',
     width: '90vw',
   },
-  '& a:visited': {
-    color: 'inherit',
+
+  '& a': {
+    color: $linkColor,
+    ':visited': {
+      color: $linkColor,
+    },
+    ':active': {
+      color: $linkColor
+    },
+    ':hover': {
+      color: $linkColor
+    }
   },
 
   [theme.breakpoints.up('lg')]: {
     paddingTop: '20vh'
   }
-})
+}));
 
 const AboutPage = () => {
 
   const theme = useTheme();
 
-  return(<StyledAbout>
+  return(<StyledAbout $linkColor={theme.palette.primary.contrastText}>
     <h1>About</h1>
     <p>Hi, I&apos;m Evan! I&apos;m a software engineer based in Seattle.
     </p>
@@ -44,12 +54,12 @@ const AboutPage = () => {
       <ListItem disablePadding>🧗🏻 I love rock climbing and tennis</ListItem>
       <ListItem disablePadding>
         <span>
-          🎹 take a look at my <a color={theme.palette.primary.contrastText} href='https://bit.ly/albumratings' target='_blank' rel='noopener noreferrer'>
+          🎹 take a look at my <a href='https://bit.ly/albumratings' target='_blank' rel='noopener noreferrer'>
           album rating list</a>
           </span>
         </ListItem>
       <ListItem disablePadding>
-        <span>🧋 take a look at my <a color={theme.palette.primary.contrastText} href='https://bit.ly/drinkratings' target='_blank' rel='noopener noreferrer'>
+        <span>🧋 take a look at my <a href='https://bit.ly/drinkratings' target='_blank' rel='noopener noreferrer'>
         drink ratings (rated out of 7)</a>
         </span>
       </ListItem>
@@ -60,8 +70,8 @@ const AboutPage = () => {
       display: 'flex',
       gap: '3ch'
     }}}>
-      <ListItem disablePadding alignItems='center' sx={{display: 'flex', gap: '0.5ch'}}><FaGithub/> <a color={theme.palette.primary.contrastText} href='https://github.com/jinevang' target='_blank' rel='noopener noreferrer'>GitHub</a></ListItem>
-      <ListItem disablePadding alignItems='center' sx={{display: 'flex', gap: '0.5ch'}}><FaLinkedin/><a color={theme.palette.primary.contrastText} href='https://www.linkedin.com/in/evanjin/' target='_blank' rel='nooperner noreferrer'>LinkedIn</a></ListItem>
+      <ListItem disablePadding alignItems='center' sx={{display: 'flex', gap: '0.5ch'}}><FaGithub/> <a href='https://github.com/jinevang' target='_blank' rel='noopener noreferrer'>GitHub</a></ListItem>
+      <ListItem disablePadding alignItems='center' sx={{display: 'flex', gap: '0.5ch'}}><FaLinkedin/><a href='https://www.linkedin.com/in/evanjin/' target='_blank' rel='nooperner noreferrer'>LinkedIn</a></ListItem>
     </List>
   </StyledAbout>);
 };

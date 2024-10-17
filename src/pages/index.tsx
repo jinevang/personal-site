@@ -49,10 +49,10 @@ const Mailto = ({ email, subject, body, children }: any) => {
   );
 };
 
-const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ backgroundColor, image }) => ({
+const CustomBox = styled(Box)<{ $backgroundColor?: string; $image?: boolean }>(({ $backgroundColor, $image }) => ({
   borderRadius: '5px',
-  width: !image && '30ch' || '32ch',
-  padding: image && '0ch' || '1ch',
+  width: !$image && '30ch' || '32ch',
+  padding: $image && '0ch' || '1ch',
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
@@ -62,7 +62,7 @@ const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ 
   justifyItems: 'center',
 
 
-  backgroundColor: backgroundColor || 'transparent',
+  backgroundColor: $backgroundColor || 'transparent',
 
   backgroundSize: 'cover',
   '& a': {
@@ -102,29 +102,29 @@ const IndexPage = () => {
         </Typography>
         <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential sx={{maxHeight: 'fit-content'}}>
 
-          <CustomBox backgroundColor={colors.basicBlue.light} height='15vh' >
+          <CustomBox $backgroundColor={colors.basicBlue.light} height='15vh' >
             <Typography color='#111110'fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
           </CustomBox>
 
-          <CustomBox backgroundColor='' height='fit-content' image={true} key={3}>
+          <CustomBox $backgroundColor='' height='fit-content' $image={true} key={3}>
             <img src={require('../assets/rock_climbing.jpg')} loading='lazy'/>
             <Typography color={textColor}>Rock climbing</Typography>
           </CustomBox>
-          <CustomBox backgroundColor={colors.basicBlue.light} height='20vh'>
+          <CustomBox $backgroundColor={colors.basicBlue.light} height='20vh'>
               <Typography color='#111110' fontSize={14}>
                 I love and taking photos and making music  - take a look at the other pages on the site if you&apos;d like!
               </Typography>
           </CustomBox>
-          <CustomBox backgroundColor='' image={true}>
+          <CustomBox $backgroundColor='' $image={true}>
             <img src={require('../assets/hiking.png')} loading='lazy'/><Typography color={textColor}>Hiking around the PNW</Typography>
           </CustomBox>
 
-          <CustomBox backgroundColor={colors.basicBlue.light} height='10vh'>
+          <CustomBox $backgroundColor={colors.basicBlue.light} height='10vh'>
           <Mailto email="jinevang@gmail.com" subject="" body="">
                 <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={20}>Send me an email!</Typography></Box>
           </Mailto>
               </CustomBox>
-          <CustomBox backgroundColor='' height='fit-content' image={true}>
+          <CustomBox $backgroundColor='' height='fit-content' $image={true}>
             <img src={require('../assets/piano.jpg')} loading='lazy'/>
             <Typography color={textColor} fontSize={14}>Playing piano</Typography>
           </CustomBox>
