@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 // Components
-import { Box, Link, Typography, useTheme } from '@mui/material';
+import { Box, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Masonry } from '@mui/lab';
 
 // Icons, Themes, Colors
@@ -91,6 +91,7 @@ const IndexPage = () => {
 
   const themeUser = useTheme();
   const textColor = themeUser.palette.primary.contrastText;
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return(
     <StyledIndexPage id='styledIndexPage'>
@@ -100,7 +101,7 @@ const IndexPage = () => {
         }}}>
           Hello!
         </Typography>
-        <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential sx={{maxHeight: 'fit-content'}}>
+        <Masonry columns={{lg: 3, md: 2, sm: 1}} sequential={!isMobile} spacing={2} sx={{maxHeight: 'fit-content'}}>
 
           <CustomBox $backgroundColor={colors.basicBlue.light} height='15vh' >
             <Typography color='#111110'fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
