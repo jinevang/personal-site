@@ -134,7 +134,7 @@ const IndexPage = () => {
             <Typography color={textColor}>Rock climbing</Typography>
           </CustomBox>
           <CustomBox $backgroundColor={colors.basicBlue.light} height='15vh'>
-              <Typography color='#111110' fontSize={'1vw'}>
+              <Typography color='#111110' fontSize={{lg: '1vw', md: 14}}>
                 I love and taking photos and making music  - take a look at the other pages on the site if you&apos;d like!
               </Typography>
           </CustomBox>
