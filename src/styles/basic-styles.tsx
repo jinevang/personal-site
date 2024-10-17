@@ -7,7 +7,6 @@ export const StyledCenter = styled(Box)({
   position: 'absolute',
   top: '3%',
   gap: '100px',
-  
   [theme.breakpoints.up('lg')]: {
     marginLeft: '-50px',
     display: 'flex',
@@ -20,15 +19,17 @@ export const StyledCenter = styled(Box)({
 
   [theme.breakpoints.down('lg')]: {
     top: '12vh',
+
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '0 2ch',
     left: 0,
-    width: '100%',
-    marginLeft: 0,
+    width: '100vw',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    maxWidth: '100vw',
     'h1': {
       display: 'flex',
       justifyContent: 'center'

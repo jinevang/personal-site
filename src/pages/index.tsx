@@ -1,22 +1,27 @@
-import React from 'react';
-import { Box, Grid2 as Grid, Link, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
 
+// Components
+import { Box, Link, Typography } from '@mui/material';
+import { Masonry } from '@mui/lab';
+
+// Icons, Themes, Colors
 import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
-import { IoIosMail } from 'react-icons/io'
 import { colors } from 'constants/colors';
-import { Masonry } from '@mui/lab';
+import { IoMail } from "react-icons/io5";
+
 const StyledIndexPage = styled(Box)({
   width: '60vw',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyItems: 'center',
-  height: '90vh', 
+  alignContent: 'center',
+  height: '100vh',
+  
 
   [theme.breakpoints.down('lg')]: {
     width: '95%',
-    height: '100vh',
   }
 })
 
@@ -24,24 +29,12 @@ const Me = styled(Box)({
   [theme.breakpoints.down('lg')]: {
     '& img': {
       display: 'none',
-      position: 'fixed',
-      width: '20%',
-      left: '1rem',
-      bottom: '-5%'
     }
   },
-
-  [theme.breakpoints.down('sm')]: {
-    '& img': {
-      width: '40%',
-      left: '-1rem',
-    }
-  },
-
   [theme.breakpoints.up('lg')]: {
     '& img': {
       position: 'absolute',
-      bottom: '-15%',
+      bottom: '0',
       right: '89%',
       width: '30%'
     }
@@ -69,10 +62,8 @@ const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ 
   justifyItems: 'center',
 
 
-  // Apply the backgroundColor prop if it exists
   backgroundColor: backgroundColor || 'white',
 
-  // Conditionally apply a background image if the image prop is true
   backgroundSize: 'cover',
   '& a': {
     color: colors.basicBlue.darkest,
@@ -98,14 +89,18 @@ const CustomBox = styled(Box)<{ backgroundColor?: string; image?: boolean }>(({ 
 }));
 
 const IndexPage = () => {
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return(
     <StyledIndexPage id='styledIndexPage'>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignContent: 'center', width: '100%'}}>
-        <Typography sx={{fontSize: 120, fontWeight: 500, fontFamily: 'inherit'}}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', alignContent: 'center', width: '100%'}}>
+        <Typography sx={{fontSize: 110, fontWeight: 500, fontFamily: 'inherit', [theme.breakpoints.down('lg')]: {
+          display: 'none',
+        }}}>
           Hello!
         </Typography>
-        <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential>
+        <Masonry columns={{lg: 3, md: 1}} spacing={2} sequential sx={{maxHeight: 'fit-content'}}>
 
           <CustomBox backgroundColor={colors.basicBlue.light} height='15vh' >
             <Typography fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
@@ -126,20 +121,20 @@ const IndexPage = () => {
 
           <CustomBox backgroundColor={colors.basicBlue.light} height='10vh'>
           <Mailto email="jinevang@gmail.com" subject="" body="">
-                <Typography color={colors.basicBlue.darkest} fontSize={20}>Send me an email!</Typography>
+                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={20}>Send me an email!</Typography></Box>
           </Mailto>
               </CustomBox>
           <CustomBox backgroundColor='' height='fit-content' image={true}>
             <img src={require('../assets/piano.jpg')} loading='lazy'/>
-            <Typography fontSize={14}>Playing piano (I&apos;m the one not in the red)</Typography>
+            <Typography fontSize={14}>Playing piano</Typography>
           </CustomBox>
 
 
 
 
         </Masonry>
+      <Me><img src={require('../assets/Subject.png')}></img></Me>
       </Box>
-    <Me><img src={require('../assets/Subject.png')}></img></Me>
     </StyledIndexPage>
     
   );

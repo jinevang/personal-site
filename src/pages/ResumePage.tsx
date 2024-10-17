@@ -16,6 +16,9 @@ const ResumeCard = styled(Box)({
     'li': {
       listStyleType: 'none'
     }
+  },
+  [theme.breakpoints.down('lg')]: {
+    maxWidth: '90vw',
   }
 });
 
@@ -52,7 +55,8 @@ const StyledResumePage = styled(Box)({
   [theme.breakpoints.down('lg')]: {
     'h2': {
       textAlign: 'center',
-    }
+    },
+    width: '90vw',
   },
   paddingBottom: '10rem'
 })

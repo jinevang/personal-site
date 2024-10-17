@@ -40,6 +40,7 @@ const StyledPhotosPage = styled(Box)({
     alignItems: 'center',
     justifyContent: 'center',
     left: 0,
+    width: '90vw',
   },
   paddingBottom: '10rem'
 })
