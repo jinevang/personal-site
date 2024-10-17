@@ -159,7 +159,7 @@ const IndexPage = () => {
 
 
         </Masonry>
-      <Me><img src={require('../assets/Subject.png')}></img></Me>
+      <Me><img src={require('../assets/looking_back.png')}></img></Me>
       </Box>
     </StyledIndexPage>
     
