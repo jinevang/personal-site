@@ -126,7 +126,7 @@ const IndexPage = () => {
         <Masonry columns={{lg: 3, sm: 2, xs: 1}} sequential={!isMobile} spacing={2} sx={{maxHeight: 'fit-content'}}>
 
           <CustomBox $backgroundColor={colors.basicBlue.light} height='15vh' >
-            <Typography color='#111110'fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
+            <Typography color='#111110' fontSize={{lg: '1vw', md: 14}}>Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA. I recently graduated from UW, here are a few things I enjoy!</Typography>
           </CustomBox>
 
           <CustomBox $backgroundColor='' height='fit-content' $image={true} key={3}>
@@ -144,7 +144,7 @@ const IndexPage = () => {
 
           <CustomBox $backgroundColor={colors.basicBlue.light} height='9vh'>
           <Mailto email="jinevang@gmail.com" subject="" body="">
-                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={'1.5vw'}>Send me an email!</Typography></Box>
+                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={{lg: '1vw', md: 14}} >Send me an email!</Typography></Box>
           </Mailto>
               </CustomBox>
           <CustomBox $backgroundColor='' height='fit-content' $image={true}>
@@ -152,7 +152,7 @@ const IndexPage = () => {
               <source src={require('../assets/airportpiano.mp4')} type='video/mp4'/>
             </video>
             {/* <img src={require('../assets/piano.jpg')} loading='lazy'/> */}
-            <Typography color={textColor} fontSize={14}>Playing piano</Typography>
+            <Typography color={textColor} fontSize={{lg: '1vw', md: 14}}>Playing piano</Typography>
           </CustomBox>
 
 
