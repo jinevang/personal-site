@@ -36,6 +36,7 @@ const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ 
     width: 'fit-content',
     backgroundColor: 'transparent',
   },
+
   zIndex: 1,
 
   [theme.breakpoints.down('lg')]: {
@@ -63,7 +64,7 @@ const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ 
   boxShadow: 'none',
   
   '& a': {
-    color: textColor??colors.basicBlue.darkest,
+    color: textColor ?? colors.basicBlue.darkest,
     textDecoration: 'none',
     backgroundColor: 'transparent',
     textAlign: 'left',
