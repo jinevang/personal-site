@@ -18,9 +18,10 @@ const StyledIndexPage = styled(Box)({
   justifyItems: 'center',
   alignContent: 'center',
   height: '100vh',
-  
+
   [theme.breakpoints.down('lg')]: {
     width: '95%',
+    paddingTop: '3vh',
   }
 })
 
@@ -107,7 +108,7 @@ const IndexPage = () => {
 
           <CustomBox backgroundColor='' height='fit-content' image={true} key={3}>
             <img src={require('../assets/rock_climbing.jpg')} loading='lazy'/>
-            <Typography>Rock climbing!</Typography>
+            <Typography>Rock climbing</Typography>
           </CustomBox>
           <CustomBox backgroundColor={colors.basicBlue.light} height='20vh'>
               <Typography fontSize={14}>
