@@ -18,10 +18,6 @@ const StyledAbout = styled(Box)({
     width: '90vw',
   },
 
-  'a:visited': {
-    color: 'inherit',
-  },
-
   [theme.breakpoints.up('lg')]: {
     paddingTop: '20vh'
   }
@@ -43,8 +39,17 @@ const AboutPage = () => {
       <ListItem disablePadding>🧑🏻‍💻 full-stack software developer</ListItem>
       <ListItem disablePadding>🎵 I love playing, making, and listening to music</ListItem>
       <ListItem disablePadding>🧗🏻 I love rock climbing and tennis</ListItem>
-      <ListItem disablePadding><span>🎹 take a look at my <a color={theme.palette.primary.contrastText} href='https://bit.ly/albumratings' target='_blank' rel='noopener noreferrer'>album rating list</a></span></ListItem>
-      <ListItem disablePadding><span>🧋 take a look at my <a color={theme.palette.primary.contrastText} href='https://bit.ly/drinkratings' target='_blank' rel='noopener noreferrer'>drink ratings (rated out of 7)</a></span></ListItem>
+      <ListItem disablePadding>
+        <span>
+          🎹 take a look at my <a color={theme.palette.primary.contrastText} href='https://bit.ly/albumratings' target='_blank' rel='noopener noreferrer'>
+          album rating list</a>
+          </span>
+        </ListItem>
+      <ListItem disablePadding>
+        <span>🧋 take a look at my <a color={theme.palette.primary.contrastText} href='https://bit.ly/drinkratings' target='_blank' rel='noopener noreferrer'>
+        drink ratings (rated out of 7)</a>
+        </span>
+      </ListItem>
     </List>
     <Typography sx={{fontFamily: 'inherit', fontSize: 20, fontWeight: 600}}>
     Links</Typography>
