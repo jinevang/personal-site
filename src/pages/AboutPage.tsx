@@ -19,7 +19,7 @@ const StyledAbout = styled(Box)({
   },
 
   [theme.breakpoints.up('lg')]: {
-    paddingTop: '10vh'
+    paddingTop: '20vh'
   }
 })
 

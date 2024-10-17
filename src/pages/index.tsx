@@ -19,7 +19,6 @@ const StyledIndexPage = styled(Box)({
   alignContent: 'center',
   height: '100vh',
   
-
   [theme.breakpoints.down('lg')]: {
     width: '95%',
   }
