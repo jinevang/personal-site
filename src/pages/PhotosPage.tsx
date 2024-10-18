@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Dialog, DialogContent } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { theme } from 'styles/BasicTheme';
 
 const ImageList = styled(Box)({
@@ -23,8 +23,10 @@ const ImageList = styled(Box)({
       alignItems: 'center',
       alignContent: 'center',
       display: 'flex',
-      justifyContent: 'center'
-    }
+      justifyContent: 'center',
+      gap: '0.5ch',
+    },
+    textAlign: 'right',
   }
   
 })
@@ -42,27 +44,31 @@ const StyledPhotosPage = styled(Box)({
     left: 0,
     width: '90vw',
   },
-  paddingBottom: '10rem'
+  [theme.breakpoints.up('lg')]: {
+    paddingTop: '1rem',
+    paddingBottom: '5rem'
+  },
 })
 
 const PhotosPage = () => {
-  return(<StyledPhotosPage>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
+  return(<StyledPhotosPage>
   <h1>Photos</h1>
     <ImageList>
-      <Box component='img' src={require('../assets/eiffel.png')} loading='lazy' width={'100%'} ></Box>
+      <img src={require('../assets/eiffel.webp')} loading='lazy' width={'100%'} ></img>
       <label><i>Eiffel Through Trees</i> - 2024</label>
-      <Box component='img' src={require('../assets/paris_split.png')} loading='lazy' width={'100%'}></Box>
+      <img src={require('../assets/paris_split.webp')} loading='lazy' width={'100%'}></img>
       <label><i>Split View </i>- 2024</label>
-      <Box component='img' src={require('../assets/cinque_terre.png')} loading='lazy' width={'100%'}></Box>
+      <img src={require('../assets/cinque_terre.webp')} loading='lazy' width={'100%'}></img>
       <label><i>Vernazza, Cinque Terre</i> - 2024</label>
-      <Box component='img' src={require('../assets/paris_corner.png')} loading='lazy' width={'100%'}></Box>
-      <label><i>Cornerside Dinner</i> - 2024</label>
-      <Box component='img' src={require('../assets/venice_quiet.png')} loading='lazy' width={'100%'}></Box>
+      <img src={require('../assets/venice_quiet.webp')} loading='lazy' width={'100%'}></img>
       <label><i>Quiet Venetian Path</i> - 2024</label>
-      <Box component='img' src={require('../assets/ferry_view.png')} loading='lazy' width={'100%'}></Box>
+      <img src={require('../assets/ferry_view.webp')} loading='lazy' width={'100%'}></img>
       <label><i>Ferry View</i> - 2023</label>
-      <Box component='img' src={require('../assets/taipei_101_landscape.jpg')} loading='lazy' width={'100%'}></Box>
+      <img src={require('../assets/taipei_101_landscape.webp')} loading='lazy' width={'100%'}></img>
       <label><i>Taipei 101</i> - 2023</label>
 
     </ImageList>

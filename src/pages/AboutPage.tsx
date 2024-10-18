@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Components
 import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
@@ -6,10 +6,9 @@ import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
 // Styles & Colors
 import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaSpotify } from "react-icons/fa";
 
 const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
-  width: '100%',
   [theme.breakpoints.down('lg')]: {
     paddingTop: 0,
     display: 'flex',
@@ -32,21 +31,28 @@ const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
   },
 
   [theme.breakpoints.up('lg')]: {
-    paddingTop: '20vh'
+    paddingTop: '12vh',
+  },
+
+  '&[data-testid=tracklist]': {
+    display: 'none',
   }
+  
 }));
 
 const AboutPage = () => {
 
   const theme = useTheme();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return(<StyledAbout $linkColor={theme.palette.primary.contrastText}>
     <h1>About</h1>
     <p>Hi, I&apos;m Evan! I&apos;m a software engineer based in Seattle.
     </p>
-    <Typography sx={{fontFamily: 'inherit', fontSize: 20, fontWeight: 600}}>
+    {/* <Typography sx={{fontFamily: 'inherit', fontSize: 20, fontWeight: 600}}>
       Who?
-    </Typography>
+    </Typography> */}
     <List>
       <ListItem disablePadding>🦦 recently graduated CSSE student from UWB</ListItem>
       <ListItem disablePadding>🧑🏻‍💻 full-stack software developer</ListItem>
@@ -62,6 +68,16 @@ const AboutPage = () => {
         <span>🧋 take a look at my <a href='https://bit.ly/drinkratings' target='_blank' rel='noopener noreferrer'>
         drink ratings (rated out of 7)</a>
         </span>
+      </ListItem>
+      <ListItem disablePadding>
+        <span>🎶 follow me on <a href='https://open.spotify.com/user/jinsilky?si=758524874766450b' target='_blank' rel='noopener noreferrer'>spotify!</a>
+        </span>
+      </ListItem>
+      <br/>
+      In my recent rotation:
+      <ListItem disablePadding>
+      <iframe style={{borderRadius: '12px', borderColor: 'transparent' 
+      }} src="https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8?utm_source=generator" width="100%" height="100ch" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </ListItem>
     </List>
     <Typography sx={{fontFamily: 'inherit', fontSize: 20, fontWeight: 600}}>

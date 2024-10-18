@@ -25,7 +25,7 @@ const StyledIndexPage = styled(Box)({
 })
 
 const Me = styled(Box)({
-  [theme.breakpoints.down('lg')]: {
+  [theme.breakpoints.down('md')]: {
     '& img': {
       display: 'none',
     }
@@ -37,7 +37,7 @@ const Me = styled(Box)({
       right: '89%',
       width: '30%'
     }
-  }
+  },
 })
 
 const Mailto = ({ email, subject, body, children }: any) => {
@@ -118,7 +118,7 @@ const IndexPage = () => {
   return(
     <StyledIndexPage id='styledIndexPage'>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', alignContent: 'center', width: '100%'}}>
-        <Typography sx={{color: textColor, fontSize: 110, fontWeight: 500, fontFamily: 'inherit', [theme.breakpoints.down('lg')]: {
+        <Typography sx={{color: textColor, fontSize: 110, fontWeight: 500, fontFamily: 'inherit', [theme.breakpoints.down('md')]: {
           display: 'none'
         }}}>
           Hello!
@@ -139,7 +139,7 @@ const IndexPage = () => {
               </Typography>
           </CustomBox>
           <CustomBox $backgroundColor='' $image={true}>
-            <img src={require('../assets/hiking.png')} loading='lazy'/><Typography color={textColor}>Hiking around the PNW</Typography>
+            <img src={require('../assets/hiking.webp')} loading='lazy'/><Typography color={textColor}>Hiking around the PNW</Typography>
           </CustomBox>
 
           <CustomBox $backgroundColor={colors.basicBlue.light} height='9vh'>

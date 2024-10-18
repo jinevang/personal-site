@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { theme } from 'styles/BasicTheme';
 
 const videos = [
@@ -31,6 +31,10 @@ const StyledMusicPage = styled(Box)({
     },
     width: '90vw'
   },
+  [theme.breakpoints.up('lg')]: {
+    paddingTop: '1rem',
+    paddingBottom: '5rem'
+  },
   'iframe': {
     border: 'none',
   },
@@ -39,6 +43,10 @@ const StyledMusicPage = styled(Box)({
 
 
 const MusicPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // const [current, setCurrent] = useState('');
 
@@ -56,7 +64,7 @@ const MusicPage = () => {
           justifyContent: 'flex-start',
           flexWrap: 'wrap',
         }}>
-          <iframe style={{flexShrink: 0}}key={`video-${i}`}width='560' height='315' src={v.link} title='YouTube video player' allow='clipboard-write; encrypted-media; gyroscope; picture-in-picture;'>
+          <iframe style={{flexShrink: 0}} key={`video-${i}`} width='560' height='315' src={v.link} title='YouTube video player' allow='clipboard-write; encrypted-media; gyroscope; picture-in-picture;'>
           </iframe>
           {<Box key={`video-info-${i}`}>
             <Typography fontFamily={'inherit'} fontSize={20} textOverflow={'ellipsis'}>{v.title}</Typography>

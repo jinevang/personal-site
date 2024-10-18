@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Box, Grid2 as Grid, Typography, useTheme } from '@mui/material';
 import { theme } from 'styles/BasicTheme';
@@ -52,16 +52,23 @@ const InfoHolder = styled(Box)({
 })
 
 const StyledResumePage = styled(Box)({
+  [theme.breakpoints.up('lg')]: {
+    paddingTop: '1rem',
+    paddingBottom: '5rem'
+  },
   [theme.breakpoints.down('lg')]: {
     'h2': {
       textAlign: 'center',
     },
     width: '90vw',
   },
-  paddingBottom: '10rem'
 })
 
 const ResumePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const themeUser = useTheme();
 
   const resumeCardBackground = themeUser.palette.secondary.main;
