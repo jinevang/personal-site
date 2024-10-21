@@ -61,7 +61,7 @@ const StyledResumePage = styled(Box)({
       textAlign: 'center',
     },
     width: '90vw',
-    paddingBottom: '2rem'
+    paddingBottom: '3rem'
   },
 })
 
