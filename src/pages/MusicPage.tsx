@@ -37,6 +37,7 @@ const StyledMusicPage = styled(Box)({
   },
   'iframe': {
     border: 'none',
+    borderRadius: '5px',
   },
   paddingBottom: '10rem'
 })
