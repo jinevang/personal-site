@@ -11,6 +11,7 @@ import { FaGithub, FaLinkedin, FaSpotify } from "react-icons/fa";
 const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
   [theme.breakpoints.down('lg')]: {
     paddingTop: 0,
+    paddingBottom: '3rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

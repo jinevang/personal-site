@@ -11,11 +11,8 @@ import { theme } from 'styles/BasicTheme';
 import { VscHome } from "react-icons/vsc";
 import { RiComputerLine } from "react-icons/ri";
 import { MdOutlinePhoto } from "react-icons/md";
-import { PiPianoKeysFill } from "react-icons/pi";
-import { IoPersonSharp } from "react-icons/io5";
-
-
-// TODO: put icons as nav with subtitles maybe
+import { MdOutlinePerson } from "react-icons/md";
+import { IoMusicalNotes } from "react-icons/io5";
 
 const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ textColor, bgColor }) =>({
   backgroundColor: 'transparent',
@@ -106,12 +103,12 @@ const navItems = [
   {
     label: 'Music',
     href: '/music',
-    icon: <PiPianoKeysFill/>
+    icon: <IoMusicalNotes/>
   },
   {
     label: 'About',
     href: '/about',
-    icon: <IoPersonSharp/>
+    icon: <MdOutlinePerson/>
   }
 ]
 

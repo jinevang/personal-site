@@ -37,7 +37,7 @@ const StyledPhotosPage = styled(Box)({
       display: 'flex',
       justifyContent: 'center'
     },
-
+    paddingBottom: '3rem',
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
