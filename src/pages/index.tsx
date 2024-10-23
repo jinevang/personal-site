@@ -30,6 +30,14 @@ const Me = styled(Box)({
       display: 'none',
     }
   },
+  [theme.breakpoints.between('md', 'lg')]: {
+    '& img': {
+      position: 'fixed',
+      bottom: '-10%',
+      right: '80%',
+      width: '30%',
+    }
+  },
   [theme.breakpoints.up('lg')]: {
     '& img': {
       position: 'absolute',
@@ -50,7 +58,6 @@ const Mailto = ({ email, subject, body, children }: any) => {
 
 const CustomBox = styled(Box)<{ bgcolor?: string; image?: string }>(({ bgcolor, image }) => ({
   [theme.breakpoints.up('lg')]: {
-
     width: !image && '30ch' || '32ch',
   },
   borderRadius: '5px',
@@ -86,7 +93,7 @@ const CustomBox = styled(Box)<{ bgcolor?: string; image?: string }>(({ bgcolor, 
   },
 
   [theme.breakpoints.down('sm')]: {
-    width: '90%',
+    width: '50%',
   },
 
   [theme.breakpoints.between('sm', 'md')]: {
@@ -130,7 +137,7 @@ const IndexPage = () => {
           </CustomBox>
 
           <CustomBox bgcolor='' height='fit-content' image='true' key={3}>
-            <img src={require('../assets/rock_climbing.jpg')} loading='lazy'/>
+            <img src={require('../assets/rock_climbing.jpg')}/>
             <Typography color={textColor}>Rock climbing</Typography>
           </CustomBox>
           <CustomBox bgcolor={colors.basicBlue.light} height='15vh'>
@@ -139,7 +146,7 @@ const IndexPage = () => {
               </Typography>
           </CustomBox>
           <CustomBox bgcolor='' image="true">
-            <img src={require('../assets/hiking.webp')} loading='lazy'/><Typography color={textColor}>Hiking around the PNW</Typography>
+            <img src={require('../assets/hiking.webp')}/><Typography color={textColor}>Hiking around the PNW</Typography>
           </CustomBox>
 
           <CustomBox bgcolor={colors.basicBlue.light} height='9vh'>
@@ -151,7 +158,6 @@ const IndexPage = () => {
             <video width='100%' height='100%' ref={videoRef} onClick={handleClick} controlsList='nofullscreen nodownload' controls>
               <source src={require('../assets/airportpiano.mp4')} type='video/mp4'/>
             </video>
-            {/* <img src={require('../assets/piano.jpg')} loading='lazy'/> */}
             <Typography color={textColor} fontSize={{lg: '1vw', md: 14}}>Playing piano</Typography>
           </CustomBox>
 
