@@ -6,6 +6,10 @@ import { theme } from './BasicTheme';
 export const StyledCenter = styled(Box)({
   position: 'absolute',
   gap: '100px',
+
+  '& p': {
+    fontFamily: 'inherit',
+  },
   [theme.breakpoints.up('lg')]: {
     marginLeft: '-50px',
     display: 'flex',

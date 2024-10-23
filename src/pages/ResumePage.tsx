@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 
-import { Box, Grid2 as Grid, Typography, useTheme } from '@mui/material';
+import { Box, Grid2 as Grid, IconButton, Typography, useTheme } from '@mui/material';
 import { theme } from 'styles/BasicTheme';
 import styled from '@emotion/styled';
+import { IoMdDownload } from "react-icons/io";
+
 
 const ResumeCard = styled(Box)({
   borderRadius: '5px',
@@ -60,6 +62,10 @@ const StyledResumePage = styled(Box)({
     'h2': {
       textAlign: 'center',
     },
+    '& .resume-download-box': {
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
     width: '90vw',
     paddingBottom: '3rem'
   },
@@ -76,7 +82,12 @@ const ResumePage = () => {
 
   return(
     <StyledResumePage>
-      <h1>Resume</h1>
+      <Box className='resume-download-box' sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+      }}><h1>Resume</h1> <IconButton href={require('../assets/resume.pdf')} download='EvanJinGreyResume'><IoMdDownload color={themeUser.palette.primary.contrastText} size='30'/></IconButton>
+      </Box>
       <h2>Skills</h2>
       <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <Typography color='contrastText'fontWeight={600}>Languages</Typography>
