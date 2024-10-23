@@ -8,6 +8,8 @@ import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 import { FaGithub, FaLinkedin, FaSpotify } from "react-icons/fa";
 
+const playlists = ['https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8', 'https://open.spotify.com/embed/playlist/61bq0A3SRg2PqW4B7mzTIO', 'https://open.spotify.com/embed/playlist/0g4G2zR20Mcfbd5bHU4cwi'];
+
 const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
   [theme.breakpoints.down('lg')]: {
     paddingTop: 0,
@@ -78,7 +80,7 @@ const AboutPage = () => {
       In my recent rotation:
       <ListItem disablePadding>
       <iframe style={{borderRadius: '12px', borderColor: 'transparent' 
-      }} src="https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8?utm_source=generator" width="100%" height="100ch" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      }} src={playlists[Math.floor(Math.random() * ((playlists.length - 1) - 0 + 1) + 0)]} width="100%" height="100ch" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </ListItem>
     </List>
     <Typography sx={{fontFamily: 'inherit', fontSize: 20, fontWeight: 600}}>
