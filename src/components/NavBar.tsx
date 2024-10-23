@@ -14,7 +14,7 @@ import { MdOutlinePhoto } from "react-icons/md";
 import { MdOutlinePerson } from "react-icons/md";
 import { IoMusicalNotes } from "react-icons/io5";
 
-const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ textColor, bgColor }) =>({
+const StyledNavBar = styled(Toolbar)<{textcolor?: string, bgcolor?: string}>(({ textcolor, bgcolor }) =>({
   backgroundColor: 'transparent',
   ":active": {
     backgroundColor: 'transparent',
@@ -44,7 +44,7 @@ const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ 
     padding: '3ch',
     position: 'fixed',
     width: '100vw',
-    backgroundColor: bgColor ?? colors.basicBlue.default,
+    backgroundColor: bgcolor ?? colors.basicBlue.default,
     transition: '0.5s normal',
     fontSize: '18px',
     height: '8vh',
@@ -61,7 +61,7 @@ const StyledNavBar = styled(Toolbar)<{textColor?: string, bgColor?: string}>(({ 
   boxShadow: 'none',
   
   '& a': {
-    color: textColor ?? colors.basicBlue.darkest,
+    color: textcolor ?? colors.basicBlue.darkest,
     textDecoration: 'none',
     backgroundColor: 'transparent',
     textAlign: 'left',
@@ -121,7 +121,7 @@ const NavBar = () => {
     navigate(route);
   }
 
-  return(<StyledNavBar textColor={theme.palette.secondary.contrastText} bgColor={theme.palette.background.default}>
+  return(<StyledNavBar textcolor={theme.palette.secondary.contrastText} bgcolor={theme.palette.background.default}>
     {navItems.map((item) => (
       <a key={item.href} onClick={() => {navToRoute(item.href)}}>
         <Box key={item.href} sx={{

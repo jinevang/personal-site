@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
@@ -10,7 +10,7 @@ import { FaGithub, FaLinkedin, FaSpotify } from "react-icons/fa";
 
 const playlists = ['https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8', 'https://open.spotify.com/embed/playlist/61bq0A3SRg2PqW4B7mzTIO', 'https://open.spotify.com/embed/playlist/0g4G2zR20Mcfbd5bHU4cwi'];
 
-const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
+const StyledAbout = styled(Box)<{linkcolor: string}>(({linkcolor}) => ({
   [theme.breakpoints.down('lg')]: {
     paddingTop: 0,
     paddingBottom: '3rem',
@@ -21,15 +21,15 @@ const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
   },
 
   '& a': {
-    color: $linkColor,
+    color: linkcolor,
     ':visited': {
-      color: $linkColor,
+      color: linkcolor,
     },
     ':active': {
-      color: $linkColor
+      color: linkcolor
     },
     ':hover': {
-      color: $linkColor
+      color: linkcolor
     }
   },
 
@@ -37,19 +37,31 @@ const StyledAbout = styled(Box)<{$linkColor: string}>(({$linkColor}) => ({
     paddingTop: '12vh',
   },
 
-  '&[data-testid=tracklist]': {
-    display: 'none',
-  }
   
 }));
 
 const AboutPage = () => {
+  
+  function seedBasedOnDay(arrLength: number): number {
+    const today = new Date().toISOString().split('T')[0];
+
+    const seed = Array.from(today).reduce((acc, char) => acc + char.charCodeAt(0), 0);
+
+    const seededRandom = (seed: number): number => {
+        const x = Math.sin(seed) * 10000;
+        return x - Math.floor(x);
+    };
+
+    const randomIndex = Math.floor(seededRandom(seed) * arrLength);
+    
+    return randomIndex;
+}
 
   const theme = useTheme();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  return(<StyledAbout $linkColor={theme.palette.primary.contrastText}>
+  return(<StyledAbout linkcolor={theme.palette.primary.contrastText}>
     <h1>About</h1>
     <p>Hi, I&apos;m Evan! I&apos;m a software engineer based in Seattle.
     </p>
@@ -80,7 +92,7 @@ const AboutPage = () => {
       In my recent rotation:
       <ListItem disablePadding>
       <iframe style={{borderRadius: '12px', borderColor: 'transparent' 
-      }} src={playlists[Math.floor(Math.random() * ((playlists.length - 1) - 0 + 1) + 0)]} width="100%" height="100ch" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      }} src={playlists[seedBasedOnDay(playlists.length)]} width="100%" height="100ch" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </ListItem>
     </List>
     <Typography sx={{fontFamily: 'inherit', fontSize: 20, fontWeight: 600}}>
