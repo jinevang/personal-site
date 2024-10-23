@@ -6,9 +6,9 @@ import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
 // Styles & Colors
 import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
-import { FaGithub, FaLinkedin, FaSpotify } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const playlists = ['https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8', 'https://open.spotify.com/embed/playlist/61bq0A3SRg2PqW4B7mzTIO', 'https://open.spotify.com/embed/playlist/0g4G2zR20Mcfbd5bHU4cwi'];
+const playlists = ['https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8', 'https://open.spotify.com/embed/playlist/6dwmmB5DzfJeyMUEyFkKPV', 'https://open.spotify.com/embed/playlist/3br0Q3fIrEGVtrAp8ksB5Z', 'https://open.spotify.com/embed/playlist/1gZEFUIYFqoAh7cJvp0JD7', 'https://open.spotify.com/embed/playlist/0n3nsKaXmdLdM5XspXROvQ'];
 
 const StyledAbout = styled(Box)<{linkcolor: string}>(({linkcolor}) => ({
   [theme.breakpoints.down('lg')]: {
