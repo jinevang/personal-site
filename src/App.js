@@ -18,14 +18,20 @@ import Footer from 'components/Footer';
 import PageWrapper from 'components/PageWrapper';
 import DrinkRatingsPage from 'pages/DrinkRatingsPage';
 import { Box, CssBaseline, Switch, ThemeProvider, useMediaQuery, useTheme } from '@mui/material';
-import { darkTheme, lightTheme, theme } from 'styles/BasicTheme';
+import { darkTheme, getTheme, lightTheme, theme } from 'styles/BasicTheme';
 
 import { FaMoon } from 'react-icons/fa6';
 
 function App() {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem('darkMode');
+
+    if(!savedMode) {
+      return prefersDarkMode.toString() === 'true';
+    }
+
     return savedMode ? JSON.parse(savedMode) : false;
   });
   
@@ -38,7 +44,7 @@ function App() {
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={getTheme(darkMode ? 'dark' : 'light')}>
       <CssBaseline/>
       <PageWrapper>
         <BrowserRouter>
@@ -62,6 +68,7 @@ function App() {
         </BrowserRouter>
       </PageWrapper>
     </ThemeProvider>
+
   );
 }
 

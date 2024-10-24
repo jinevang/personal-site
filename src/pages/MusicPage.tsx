@@ -19,7 +19,7 @@ const videos = [
   {
     id: 'winter-wonderland',
     title: 'Winter Wonderland',
-    credits: 'Performed by Darren Hartono, Richie Phan, Ryan Phan, & Evan Grey\nArranged by ALotOfRice, ScoopGuy, Slendarp, jinevang\nSolo Vocals: ALotOfRice, ScoopGuy, jinevang\nSolo: Slendarp\nPiano: Slendarp\nDrums: ALotOfRice\nBacking Vocals: ScoopGuy, Slendarp, jinevang\nBass (Cello): ScoopGuy\nprod. by jinevang\n\nOriginal composition/lyrics by Felix Bernard and Richard Bernhard Smith',
+    credits: 'Performed by Darren Hartono, Richie Phan, Ryan Phan, & Evan Jin\nArranged by ALotOfRice, ScoopGuy, Slendarp, jinevang\nSolo Vocals: ALotOfRice, ScoopGuy, jinevang\nSolo: Slendarp\nPiano: Slendarp\nDrums: ALotOfRice\nBacking Vocals: ScoopGuy, Slendarp, jinevang\nBass (Cello): ScoopGuy\nprod. by jinevang\n\nOriginal composition/lyrics by Felix Bernard and Richard Bernhard Smith',
     link: 'https://www.youtube.com/embed/Bj6i43N8Vy4?si=vKnWy4FvCk8RAJYs'
   }
 ];
