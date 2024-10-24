@@ -58,17 +58,17 @@ const PhotosPage = () => {
   return(<StyledPhotosPage>
   <h1>Photos</h1>
     <ImageList>
-      <img src={require('../assets/eiffel.webp')} loading='lazy' width={'100%'} ></img>
+      <img src={require('../assets/eiffel.webp')} loading='lazy' width={'100%'} alt='Photo of the Eiffel Tower in Paris through some trees' ></img>
       <label><i>Eiffel Through Trees</i> - 2024</label>
-      <img src={require('../assets/paris_split.webp')} loading='lazy' width={'100%'}></img>
+      <img src={require('../assets/paris_split.webp')} loading='lazy' width={'100%'} alt='A view of the Seine River from the Eiffel Tower'></img>
       <label><i>Split View </i>- 2024</label>
-      <img src={require('../assets/cinque_terre.webp')} loading='lazy' width={'100%'}></img>
+      <img src={require('../assets/cinque_terre.webp')} loading='lazy' width={'100%'} alt='A view of the town of Vernazza in Cinque Terre'></img>
       <label><i>Vernazza, Cinque Terre</i> - 2024</label>
-      <img src={require('../assets/venice_quiet.webp')} loading='lazy' width={'100%'}></img>
+      <img src={require('../assets/venice_quiet.webp')} loading='lazy' width={'100%'} alt='A photo of a quiet Venice night'></img>
       <label><i>Quiet Venetian Path</i> - 2024</label>
-      <img src={require('../assets/ferry_view.webp')} loading='lazy' width={'100%'}></img>
+      <img src={require('../assets/ferry_view.webp')} loading='lazy' width={'100%'} alt='A view of Seattle from the ferry'></img>
       <label><i>Ferry View</i> - 2023</label>
-      <img src={require('../assets/taipei_101_landscape.webp')} loading='lazy' width={'100%'}></img>
+      <img src={require('../assets/taipei_101_landscape.webp')} loading='lazy' width={'100%'} alt='A view of Taipei 101 from Elephant Mountain'></img>
       <label><i>Taipei 101</i> - 2023</label>
 
     </ImageList>
