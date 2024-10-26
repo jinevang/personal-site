@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Components
 import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
@@ -8,15 +8,15 @@ import { Box, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import styled from '@emotion/styled';
 import { colors } from 'constants/colors';
 import { theme } from 'styles/BasicTheme';
-import { VscHome } from "react-icons/vsc";
-import { RiComputerLine } from "react-icons/ri";
-import { MdOutlinePhoto } from "react-icons/md";
-import { MdOutlinePerson } from "react-icons/md";
-import { IoMusicalNotes } from "react-icons/io5";
+import { VscHome } from 'react-icons/vsc';
+import { RiComputerLine } from 'react-icons/ri';
+import { MdOutlinePhoto } from 'react-icons/md';
+import { MdOutlinePerson } from 'react-icons/md';
+import { IoMusicalNotes } from 'react-icons/io5';
 
 const StyledNavBar = styled(Toolbar)<{textcolor?: string, bgcolor?: string}>(({ textcolor, bgcolor }) =>({
   backgroundColor: 'transparent',
-  ":active": {
+  ':active': {
     backgroundColor: 'transparent',
   },
 
@@ -49,10 +49,10 @@ const StyledNavBar = styled(Toolbar)<{textcolor?: string, bgcolor?: string}>(({ 
     fontSize: '18px',
     height: '8vh',
     '& a': {
-      ":visited": {
+      ':visited': {
       color: 'white',
     },
-    ":not:visited": {
+    ':not:visited': {
       color: 'white'
     }
     }
@@ -65,20 +65,20 @@ const StyledNavBar = styled(Toolbar)<{textcolor?: string, bgcolor?: string}>(({ 
     textDecoration: 'none',
     backgroundColor: 'transparent',
     textAlign: 'left',
-    ":focus": {
+    ':focus': {
       backgroundColor: 'transparent',
     },
-    ":hover": {
+    ':hover': {
       textDecoration: 'underline',
       cursor: 'pointer',
     },
-    ":active": {
+    ':active': {
       textDecoration: 'underline',
     },
-    ":visited": {
+    ':visited': {
       color: colors.basicBlue.darker,
     },
-    ":not:visited": {
+    ':not:visited': {
       color: colors.basicBlue.darker
     }
   }

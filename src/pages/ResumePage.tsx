@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 
+// MUI
 import { Box, Grid2 as Grid, IconButton, Typography, useTheme } from '@mui/material';
+
+// Themes, Icons, Styles
 import { theme } from 'styles/BasicTheme';
 import styled from '@emotion/styled';
-import { IoMdDownload } from "react-icons/io";
+import { IoMdDownload } from 'react-icons/io';
 
 
 const ResumeCard = styled(Box)({

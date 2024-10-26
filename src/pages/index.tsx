@@ -8,7 +8,7 @@ import { Masonry } from '@mui/lab';
 import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 import { colors } from 'constants/colors';
-import { IoMail } from "react-icons/io5";
+import { IoMail } from 'react-icons/io5';
 
 const StyledIndexPage = styled(Box)({
   width: '60vw',
@@ -145,12 +145,12 @@ const IndexPage = () => {
                 I love and taking photos and making music  - take a look at the other pages on the site if you&apos;d like!
               </Typography>
           </CustomBox>
-          <CustomBox bgcolor='' image="true">
+          <CustomBox bgcolor='' image='true'>
             <img src={require('../assets/hiking.webp')}/><Typography color={textColor}>Hiking around the PNW</Typography>
           </CustomBox>
 
           <CustomBox bgcolor={colors.basicBlue.light} height='9vh'>
-          <Mailto email="jinevang@gmail.com" subject="" body="">
+          <Mailto email='jinevang@gmail.com' subject='' body=''>
                 <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={{lg: '1vw', md: 14}} >Send me an email!</Typography></Box>
           </Mailto>
               </CustomBox>
@@ -160,10 +160,6 @@ const IndexPage = () => {
             </video>
             <Typography color={textColor} fontSize={{lg: '1vw', md: 14}}>Playing piano</Typography>
           </CustomBox>
-
-
-
-
         </Masonry>
       <Me><img src={require('../assets/looking_back.png')}></img></Me>
       </Box>

@@ -1,6 +1,10 @@
-import styled from '@emotion/styled';
+import React, { useEffect } from 'react';
+
+// MUI
 import { Box, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+
+// Styles and Themes
+import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 
 const videos = [

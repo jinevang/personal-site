@@ -1,9 +1,12 @@
 import React from 'react';
+import { Box } from '@mui/material';
 
 const ErrorPage = () => {
-  return(<div>
+  return(<Box sx={{
+    paddingTop: '50vh'
+  }}>
     404 error... page not found.
-  </div>);
+  </Box>);
 };
 
 export default ErrorPage;

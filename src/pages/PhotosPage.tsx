@@ -1,6 +1,10 @@
+import React, { useEffect } from 'react';
+
+// MUI
+import { Box } from '@mui/material';
+
+// Styles, Themes
 import styled from '@emotion/styled';
-import { Box, Dialog, DialogContent } from '@mui/material';
-import React, { useEffect, useState } from 'react';
 import { theme } from 'styles/BasicTheme';
 
 const ImageList = styled(Box)({
