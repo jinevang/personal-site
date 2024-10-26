@@ -8,7 +8,7 @@ import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const playlists = ['https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8', 'https://open.spotify.com/embed/playlist/6dwmmB5DzfJeyMUEyFkKPV', 'https://open.spotify.com/embed/playlist/3br0Q3fIrEGVtrAp8ksB5Z', 'https://open.spotify.com/embed/playlist/1gZEFUIYFqoAh7cJvp0JD7', 'https://open.spotify.com/embed/playlist/0n3nsKaXmdLdM5XspXROvQ'];
+const playlists = ['https://open.spotify.com/embed/playlist/5xiUSBjTZa8DZzOLJFMYg8', 'https://open.spotify.com/embed/playlist/6dwmmB5DzfJeyMUEyFkKPV', 'https://open.spotify.com/embed/playlist/3br0Q3fIrEGVtrAp8ksB5Z', 'https://open.spotify.com/embed/playlist/1gZEFUIYFqoAh7cJvp0JD7', 'https://open.spotify.com/embed/playlist/0n3nsKaXmdLdM5XspXROvQ', 'https://open.spotify.com/embed/playlist/0DmIIaWaVw5GAnA2OJScf2'];
 
 const StyledAbout = styled(Box)<{linkcolor: string}>(({linkcolor}) => ({
   [theme.breakpoints.down('lg')]: {
