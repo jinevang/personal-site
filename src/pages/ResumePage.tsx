@@ -7,6 +7,7 @@ import { Box, Grid2 as Grid, IconButton, Typography, useTheme } from '@mui/mater
 import { theme } from 'styles/BasicTheme';
 import styled from '@emotion/styled';
 import { IoMdDownload } from 'react-icons/io';
+import { FaGithub } from 'react-icons/fa';
 
 
 const ResumeCard = styled(Box)({
@@ -31,6 +32,7 @@ const InfoHolder = styled(Box)({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'start',
+  lineHeight: '100%',
   [theme.breakpoints.up('lg')]: {
     'span': {
       display: 'flex',
@@ -66,13 +68,17 @@ const StyledResumePage = styled(Box)({
       textAlign: 'center',
     },
     '& .resume-download-box': {
+      flexDirection: 'column',
       alignItems: 'center',
+      alignContent: 'center',
       justifyContent: 'center'
     },
     width: '90vw',
     paddingBottom: '3rem'
   },
 })
+
+const courses = ['Data Structures & Algorithms I & II', 'Usability & User-Centered Design', 'Human-Computer Interaction', 'Analysis & Design', 'Operating Systems', 'Technical Writing', 'Software Engineering', 'Cloud Computing', 'Hardware Organization']
 
 const ResumePage = () => {
   useEffect(() => {
@@ -89,12 +95,18 @@ const ResumePage = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between'
-      }}><h1>Resume</h1> <IconButton href={require('../assets/resume.pdf')} download='EvanJinGreyResume'><IoMdDownload color={themeUser.palette.primary.contrastText} size='30'/></IconButton>
+      }}><h1>Resume</h1> 
+      <Box sx={{alignItems: 'center', display: 'flex'}}>
+        <IconButton href={require('../assets/resume.pdf')} download='EvanJinResume'><IoMdDownload color={themeUser.palette.primary.contrastText} size='30'/>
+      </IconButton>
+      <Typography fontSize={14} pr={'1rem'}>Download</Typography>
+      </Box>
       </Box>
       <h2>Skills</h2>
       <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <Typography color='contrastText'fontWeight={600}>Languages</Typography>
-          <Typography>JavaScript, JQuery, HTML, CSS, Bash, React, Typescript, SQL, Java, C++, C, PHP</Typography>
+          <Typography>JavaScript, JQuery, HTML, CSS, React, Typescript, SQL, Java, C++, C, PHP, Python</Typography>
+
           <br/>
           <Typography fontWeight={600}>Tools and Frameworks</Typography>
           <Typography>Visual Studio Code, GitHub, Lucid Chart, Linux, MariaDB, Docker, MUI, Jenkins CI/CD</Typography>
@@ -116,15 +128,9 @@ const ResumePage = () => {
       <br/>
       <Typography fontWeight={700}>Relevant Coursework</Typography>
       <Grid container spacing={2} columns={{md: 18, sm: 12}} >
-        <Grid size={6}><Typography fontSize={14}>Data Structures & Algorithms I & II</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Usability & User-Centered Design</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Human-Computer Interaction</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Analysis & Design</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Operating Systems</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Technical Writing</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Software Engineering</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Cloud Computing</Typography></Grid>
-        <Grid size={6}><Typography fontSize={14}>Hardware Organization</Typography></Grid>
+        {courses.map((c, i) => 
+        <Grid size={6} key={i}><Typography fontSize={14}>{c}</Typography></Grid>
+        )}
       </Grid>
       </ResumeCard>
 
@@ -188,6 +194,47 @@ const ResumePage = () => {
           </Box>
         </ResumeCard>
       </Box>
+      <br/>
+      <h2>Projects</h2>
+      <Box sx={{display: 'flex', flexDirection: 'column', gap: '3ch'}}>
+
+      <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
+          <InfoHolder>
+              <Typography sx={{fontWeight: '800', fontSize: '18px', }}>Personal Website</Typography>
+            <IconButton sx={{alignContent: 'right', padding: 0, color: themeUser.palette.primary.contrastText}} target='_blank' href='https://github.com/jinevang/personal-site'>
+
+            <FaGithub/> 
+            </IconButton>
+          </InfoHolder>
+            <Typography>Implemented in React using MUI framework</Typography>
+          <br/>
+
+          <Box sx={{display: 'flex', flexDirection: 'column'}}>
+            <Typography><li>You&apos;re looking at right now!</li></Typography>
+            <Typography><li>Web and mobile friendly, with dynamic dark/light mode theming</li></Typography>
+            <Typography><li>Custom designed components and layout</li></Typography>
+          </Box>
+        </ResumeCard>
+
+        <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
+          <InfoHolder>
+              <Typography sx={{fontWeight: '800', fontSize: '18px', }}>Budgeting App</Typography>
+            <IconButton sx={{alignContent: 'right', padding: 0, color: themeUser.palette.primary.contrastText}} target='_blank' href='https://github.com/jinevang/BudgetApp'>
+
+            <FaGithub/> 
+            </IconButton>
+          </InfoHolder>
+            <Typography>Implemented in Python</Typography>
+          <br/>
+
+          <Box sx={{display: 'flex', flexDirection: 'column'}}>
+            <Typography><li>Lightweight command-line application for adding and managing transactions
+            </li></Typography>
+            <Typography><li>Ability to view monthly and yearly summaries</li></Typography>
+            <Typography><li>Stores all data locally (transactions, categories, settings) in JSON files</li></Typography>
+          </Box>
+        </ResumeCard>
+        </Box>
     </StyledResumePage>
   );
 };
