@@ -58,6 +58,12 @@ const InfoHolder = styled(Box)({
   }
 })
 
+const ResumeSection = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '3ch'
+})
+
 const StyledResumePage = styled(Box)({
   [theme.breakpoints.up('lg')]: {
     paddingTop: '1rem',
@@ -96,11 +102,10 @@ const ResumePage = () => {
         alignItems: 'center',
         justifyContent: 'space-between'
       }}><h1>Resume</h1> 
-      <Box sx={{alignItems: 'center', display: 'flex'}}>
-        <IconButton href={require('../assets/resume.pdf')} download='EvanJinResume'><IoMdDownload color={themeUser.palette.primary.contrastText} size='30'/>
-      </IconButton>
-      <Typography fontSize={14} pr={'1rem'}>Download</Typography>
-      </Box>
+        <Box sx={{alignItems: 'center', display: 'flex'}}>
+          <IconButton href={require('../assets/resume.pdf')} download='EvanJinResume'><IoMdDownload color={themeUser.palette.primary.contrastText} size='30'/></IconButton>
+          <Typography fontSize={14} pr={'1rem'}>Download</Typography>
+        </Box>
       </Box>
       <h2>Skills</h2>
       <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
@@ -136,7 +141,7 @@ const ResumePage = () => {
 
       <br/>
       <h2>Experience</h2>
-      <Box sx={{display: 'flex', flexDirection: 'column', gap: '3ch'}}>
+      <ResumeSection>
         <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <InfoHolder>
             <span>
@@ -193,10 +198,10 @@ const ResumePage = () => {
             <Typography><li>Work with others to maintain quality control of instruments being processed</li></Typography>
           </Box>
         </ResumeCard>
-      </Box>
+      </ResumeSection>
       <br/>
       <h2>Projects</h2>
-      <Box sx={{display: 'flex', flexDirection: 'column', gap: '3ch'}}>
+      <ResumeSection>
 
       <ResumeCard sx={{backgroundColor: resumeCardBackground}}>
           <InfoHolder>
@@ -231,10 +236,10 @@ const ResumePage = () => {
             <Typography><li>Lightweight command-line application for adding and managing transactions
             </li></Typography>
             <Typography><li>Ability to view monthly and yearly summaries</li></Typography>
-            <Typography><li>Stores all data locally (transactions, categories, settings) in JSON files</li></Typography>
+            <Typography><li>Stores all data locally in JSON files</li></Typography>
           </Box>
         </ResumeCard>
-        </Box>
+        </ResumeSection>
     </StyledResumePage>
   );
 };
