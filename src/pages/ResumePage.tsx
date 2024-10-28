@@ -215,7 +215,7 @@ const ResumePage = () => {
           <br/>
 
           <Box sx={{display: 'flex', flexDirection: 'column'}}>
-            <Typography><li>You&apos;re looking at right now!</li></Typography>
+            <Typography><li>You&apos;re looking at it right now!</li></Typography>
             <Typography><li>Web and mobile friendly, with dynamic dark/light mode theming</li></Typography>
             <Typography><li>Custom designed components and layout</li></Typography>
           </Box>
