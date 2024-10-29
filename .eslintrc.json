@@ -25,7 +25,7 @@
     "rules": {
         "indent": [0, 2], // warning for 2
         "linebreak-style": [1, "unix"],
-        "quotes": [1, "single"],
+        "quotes": [0, "single"],
         "semi": [0, "always"],
         "@typescript-eslint/no-explicit-any": [0],
         "@typescript-eslint/no-unused-vars": "off",
