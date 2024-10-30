@@ -72,6 +72,8 @@ const PhotosPage = () => {
       <label><i>Quiet Venetian Path</i> - 2024</label>
       <img src={require('../assets/ferry_view.webp')} loading='lazy' width={'100%'} alt='A view of Seattle from the ferry'></img>
       <label><i>Ferry View</i> - 2023</label>
+      <img src={require('../assets/waterfront.webp')} loading='lazy' width={'100%'} alt='A view of Taipei 101 from Elephant Mountain'></img>
+      <label><i>Walking on Glass</i> - 2023</label>
       <img src={require('../assets/taipei_101_landscape.webp')} loading='lazy' width={'100%'} alt='A view of Taipei 101 from Elephant Mountain'></img>
       <label><i>Taipei 101</i> - 2023</label>
 
