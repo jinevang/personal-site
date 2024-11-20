@@ -1,8 +1,9 @@
-import React from 'react';
-import { Box, Chip, CircularProgress, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Chip, CircularProgress, MenuItem, Select, Typography } from '@mui/material';
 import { useGetPlacesQuery } from 'api/apiSlice';
 import { FaBook, FaCoffee } from 'react-icons/fa';
 import { FaBurger } from 'react-icons/fa6';
+
 import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 
@@ -30,9 +31,33 @@ const DrinkRatingsPage = () => {
 
   const {data, isLoading, isError } = useGetPlacesQuery({});
 
+  const [sortStyle, setSortStyle] = useState('city');
+  const [drinkLocationData, setDrinkLocationData] = useState<DrinkLocation[]>([]);
   const rows = data?.values.slice(1);
   const header = data?.values[0];
 
+  console.log(drinkLocationData);
+
+  const handleSort = (e) => {
+    setSortStyle(e.target.value);
+
+    switch (e.target.value) {
+      case 'city':
+        setDrinkLocationData(drinkLocationData.sort((a, b) => a.city.localeCompare(b.city)));
+        break;
+      case 'drinkRating':
+        setDrinkLocationData(drinkLocationData.sort((a, b) => parseInt(b.drinkRating.replace('*', '')) - parseInt(a.drinkRating.replace('*', ''))));
+        break;
+      case 'name':
+        setDrinkLocationData(drinkLocationData.sort((a, b) => a.name.localeCompare(b.name)));
+        break;
+      case 'average':
+        setDrinkLocationData(drinkLocationData.sort((a, b) => parseInt(b.drinkRating.replace('*', '')) - parseInt(a.drinkRating.replace('*', ''))));
+        break;
+      default:
+        break;
+    }
+  }
 
   const headerToKeyMap: { [key: string]: keyof DrinkLocation } = {
     Name: 'name',
@@ -46,19 +71,43 @@ const DrinkRatingsPage = () => {
     Notes: 'notes'
   };
 
-  const formattedData: DrinkLocation[] = rows?.map((row) => {
-    return row.reduce((acc, value, index) => {
-      const customKey = headerToKeyMap[header[index]];
-      if (customKey) {
-        acc[customKey] = value;
-      }
-      return acc;
-    }, {} as DrinkLocation);
-  });
+  
+  useEffect(() => {
+    const formattedData: DrinkLocation[] = rows?.map((row) => {
+      return row.reduce((acc, value, index) => {
+        const customKey = headerToKeyMap[header[index]];
+        if (customKey) {
+          acc[customKey] = value;
+        }
+        return acc;
+      }, {} as DrinkLocation);
+    });
+    if(formattedData) {
+      setDrinkLocationData(formattedData);
+    }
+  }, [data])
 
   return <StyledDrinksPage>
-    <h1>Drink Ratings</h1>
-    {formattedData && formattedData.map((location, i) => 
+    <Box sx={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    }}>
+      <h1>Drink Ratings</h1>
+      <Select
+      sx={{
+        height: '5ch'
+      }}
+      value={sortStyle}
+      onChange={handleSort}
+      >
+        <MenuItem value={'city'}>Sort by City</MenuItem>
+        <MenuItem value={'drinkRating'}>Sort by Drink Rating</MenuItem>
+        <MenuItem value={'name'}>Sort by Location Name</MenuItem>
+      </Select>
+    </Box>
+    <Typography>List of cafés and drink shops with related ratings (rated out of 7)</Typography>
+    {drinkLocationData && drinkLocationData.map((location, i) => 
       <Box sx={{
         borderBottom: `1px solid lightgray`,
         padding: '1ch 2ch',
@@ -72,12 +121,12 @@ const DrinkRatingsPage = () => {
           <Box sx={{
             display: 'flex',
             alignItems: 'center',
-            gap: '1rem'
+            gap: '1rem',
           }}>
             <Typography fontSize={20}>{location.name}</Typography>
-            {<Chip label={location.type}/>}
+            {<Chip label={location.type} size='small'/>}
           </Box>
-          <Typography fontSize={12} flexShrink={0}>{location.city}</Typography>
+          <Typography fontSize={12} flexShrink={0} pl='1rem'>{location.city}</Typography>
         </Box>
         <Typography color='textPrimary' fontSize={12} mt={'1ch'}>Ratings</Typography>
         <Box sx={{
@@ -85,9 +134,9 @@ const DrinkRatingsPage = () => {
           alignItems: 'center',
           gap: '0.5rem'
         }}>
-          {location.studyWorkRating && location.studyWorkRating !== '-' && <><FaBook/>{location.studyWorkRating.replace('*', '')}</>}
           {location.drinkRating && location.drinkRating !== '-' && <><FaCoffee/>{location.drinkRating.replace('*', '')}</>}
           {location.foodRating && location.foodRating !== '-' && <><FaBurger/>{location.foodRating.replace('*', '')}</>}
+          {location.studyWorkRating && location.studyWorkRating !== '-' && <><FaBook/>{location.studyWorkRating.replace('*', '')}</>}
         </Box>
         <Typography mt={'1ch'} fontSize={14} color='textSecondary'>
           {location.notes}
