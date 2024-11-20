@@ -1,8 +1,7 @@
-// src/features/api/apiSlice.ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-const drinkSheet = process.env.REACT_APP_DRINK_SHEET_KEY;
+const apiKey = 'AIzaSyDyEdHgCS_mmpMCmtK0fMhIoE1XenSDBDQ';
+const drinkSheet = '17ZyIov4ENVo0Xdk7xP4i8hohR6S1ovT62JbwC1R7KUU';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
