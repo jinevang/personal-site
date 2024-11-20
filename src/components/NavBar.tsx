@@ -13,6 +13,7 @@ import { RiComputerLine } from 'react-icons/ri';
 import { MdOutlinePhoto } from 'react-icons/md';
 import { MdOutlinePerson } from 'react-icons/md';
 import { IoMusicalNotes } from 'react-icons/io5';
+import { FaCoffee } from 'react-icons/fa';
 
 const StyledNavBar = styled(Toolbar)<{textcolor?: string, bgcolor?: string}>(({ textcolor, bgcolor }) =>({
   backgroundColor: 'transparent',

@@ -6,7 +6,7 @@
       "target": "es5",
       "allowUnreachableCode": false,
       "noImplicitReturns": true,
-      "noImplicitAny": true,
+      "noImplicitAny": false,
       "moduleResolution": "node",
       "typeRoots": [ "./typings" ],
       "outFile": "./dist/main.js",

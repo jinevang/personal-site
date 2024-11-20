@@ -21,6 +21,8 @@ import DrinkRatingsPage from 'pages/DrinkRatingsPage';
 // Icons, Themes, Styles
 import { darkTheme, getTheme, lightTheme, theme } from 'styles/BasicTheme';
 import { FaMoon } from 'react-icons/fa6';
+import { store } from 'api/store';
+import { Provider } from 'react-redux';
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -44,6 +46,8 @@ function App() {
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
+    <Provider store={store}>
+
     <ThemeProvider theme={getTheme(darkMode ? 'dark' : 'light')}>
       <CssBaseline/>
       <PageWrapper>
@@ -63,11 +67,13 @@ function App() {
               <Route path='photos' element={<PhotosPage/>}/>
               <Route path='music' element={<MusicPage/>}/>
               <Route path='*' element={<ErrorPage/>}/>
+              <Route path='drinks' element={<DrinkRatingsPage/>}/>
             </Routes>
           </StyledCenter>
         </BrowserRouter>
       </PageWrapper>
     </ThemeProvider>
+    </Provider>
 
   );
 }

@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 import { theme } from 'styles/BasicTheme';
 import { colors } from 'constants/colors';
 import { IoMail } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const StyledIndexPage = styled(Box)({
   width: '60vw',
@@ -56,7 +57,7 @@ const Mailto = ({ email, subject, body, children }: any) => {
   );
 };
 
-const CustomBox = styled(Box)<{ bgcolor?: string; image?: string }>(({ bgcolor, image }) => ({
+const CustomBox = styled(Box)<{ bgcolor?: string; image?: string, clickable?: boolean }>(({ bgcolor, image = false, clickable = false }) => ({
   [theme.breakpoints.up('lg')]: {
     width: !image && '30ch' || '32ch',
   },
@@ -106,6 +107,8 @@ const IndexPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const navigate = useNavigate();
+
   const themeUser = useTheme();
   const videoRef = useRef(null);
 
@@ -140,9 +143,13 @@ const IndexPage = () => {
             <img src={require('../assets/rock_climbing.jpg')}/>
             <Typography color={textColor}>Rock climbing</Typography>
           </CustomBox>
-          <CustomBox bgcolor={colors.basicBlue.light} height='15vh'>
-              <Typography color='#111110' fontSize={{lg: '1vw', md: 14}}>
-                I love and taking photos and making music  - take a look at the other pages on the site if you&apos;d like!
+          <CustomBox bgcolor={colors.basicBlue.light} height='15vh' onClick={() => navigate('/drinks')} clickable>
+              <Typography color='#111110' fontSize={{lg: '1vw', md: 14}} sx={{
+                ':hover': {
+                  cursor: 'pointer',
+                }
+              }}>
+                There has been an update to the site! Check out the new Drink Ratings page (rated out of 7)
               </Typography>
           </CustomBox>
           <CustomBox bgcolor='' image='true'>
@@ -150,9 +157,9 @@ const IndexPage = () => {
           </CustomBox>
 
           <CustomBox bgcolor={colors.basicBlue.light} height='9vh'>
-          <Mailto email='jinevang@gmail.com' subject='' body=''>
-                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={{lg: '1vw', md: 14}} >Send me an email!</Typography></Box>
-          </Mailto>
+            <Mailto email='me@jinevang.com' subject='' body=''>
+                  <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}><IoMail/> <Typography color={colors.basicBlue.darkest} fontSize={{lg: '1vw', md: 14}} >Send me an email!</Typography></Box>
+            </Mailto>
               </CustomBox>
           <CustomBox bgcolor='' height='fit-content' image='true'>
             <video width='100%' height='100%' ref={videoRef} onClick={handleClick} controlsList='nofullscreen nodownload' controls>
