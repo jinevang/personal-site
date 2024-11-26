@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Masonry } from "@mui/lab";
 import styled from "@emotion/styled";
+import { theme } from "styles/BasicTheme";
 
 // TODO: need to implement this in a way better way - why does it need require?
 
 const StyledPhotosPage = styled(Box)({
-  padding: "2em",
-  "& img": {
-    borderRadius: "5px",
+  [theme.breakpoints.down("lg")]: {
+    padding: "1em",
   },
+  padding: "2em",
   userSelect: "none",
+  "& p": {
+    fontSize: 14,
+    textAlign: "center",
+    fontStyle: "italic",
+  },
 });
 
-const PhotosPageUpdate = () => {
+const PhotosPage = () => {
   return (
     <StyledPhotosPage>
       <h1>Photos</h1>
-      <Masonry spacing={3} columns={{ xs: 2, sm: 2, md: 3 }}>
+      <Masonry spacing={2} columns={{ xs: 2, sm: 2, md: 3 }}>
         <Box>
           <img
             src={require("../assets/eiffel.webp")}
@@ -25,9 +31,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="Photo of the Eiffel Tower in Paris through some trees"
           ></img>
-          <Typography fontSize={14} textAlign={"center"}>
-            <i>Eiffel through trees</i>
-          </Typography>
+          <Typography>Eiffel through trees</Typography>
         </Box>
         <Box>
           <img
@@ -36,9 +40,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="Canada Night Market"
           ></img>
-          <Typography fontSize={14} textAlign={"center"}>
-            <i>night market</i>
-          </Typography>
+          <Typography>night market</Typography>
         </Box>
         <Box>
           <img
@@ -47,9 +49,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="A view of the Seine River from the Eiffel Tower"
           ></img>
-          <Typography fontSize={14} textAlign={"center"}>
-            <i>the river Seine</i>
-          </Typography>
+          <Typography>the river Seine</Typography>
         </Box>
         <Box>
           <img
@@ -58,6 +58,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="A view of the town of Vernazza in Cinque Terre"
           ></img>
+          <Typography>vernazza</Typography>
         </Box>
         <Box>
           <img
@@ -66,9 +67,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="A photo of a quiet Venice night"
           ></img>
-          <Typography fontSize={14} textAlign={"center"}>
-            <i>venice (quiet)</i>
-          </Typography>
+          <Typography>venice (quiet)</Typography>
         </Box>
         <Box>
           <img
@@ -77,6 +76,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="A view of Seattle from the ferry"
           ></img>
+          <Typography>ferry view</Typography>
         </Box>
         <Box>
           <img
@@ -85,9 +85,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="malatang"
           ></img>
-          <Typography fontSize={14} textAlign={"center"}>
-            <i>麻辣燙</i>
-          </Typography>
+          <Typography>麻辣燙</Typography>
         </Box>
         <Box>
           <img
@@ -112,9 +110,7 @@ const PhotosPageUpdate = () => {
             width={"100%"}
             alt="A view of Taipei 101 from Elephant Mountain"
           ></img>
-          <Typography fontSize={14} textAlign={"center"}>
-            <i>象山</i>
-          </Typography>
+          <Typography>象山</Typography>
         </Box>
       </Masonry>
       <Typography textAlign="left">More to come...</Typography>
@@ -122,4 +118,4 @@ const PhotosPageUpdate = () => {
   );
 };
 
-export default PhotosPageUpdate;
+export default PhotosPage;
