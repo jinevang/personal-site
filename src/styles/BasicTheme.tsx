@@ -1,8 +1,8 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   typography: {
-    fontFamily: 'inherit',
+    fontFamily: "inherit",
   },
   breakpoints: {
     values: {
@@ -50,42 +50,42 @@ export const theme = createTheme({
 // });
 
 // Consolidated theme with dynamic mode support
-export const getTheme = (mode: any) => 
+export const getTheme = (mode: any) =>
   createTheme({
     palette: {
       mode: mode,
-      ...(mode === 'light'
+      ...(mode === "light"
         ? {
             // Light mode palette
             primary: {
-              main: '#b0d9fc',
-              contrastText: '#161616',
+              main: "#b0d9fc",
+              contrastText: "#161616",
             },
             secondary: {
-              main: '#ffffff',
-              contrastText: '#034C8C',
+              main: "#ffffff",
+              contrastText: "#034C8C",
             },
             background: {
-              default: '#ffffff',
+              default: "#ffffff",
             },
           }
         : {
             // Dark mode palette
             primary: {
-              main: '#034C8C',
-              contrastText: '#ffffff',
+              main: "#034C8C",
+              contrastText: "#ffffff",
             },
             secondary: {
-              main: '#0F436E',
-              contrastText: '#86C6FE',
+              main: "#0F436E",
+              contrastText: "#86C6FE",
             },
             background: {
-              default: '#161616',
+              default: "#161616",
             },
           }),
     },
     typography: {
-      fontFamily: 'inherit',
+      fontFamily: "inherit",
     },
     breakpoints: {
       values: {
