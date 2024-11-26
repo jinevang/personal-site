@@ -169,7 +169,6 @@ const IndexPage = () => {
           <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
             <Typography color="#111110" fontSize={14}>
               Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA.
-              I recently graduated from UW, here are a few things I enjoy!
             </Typography>
           </CustomBox>
 
