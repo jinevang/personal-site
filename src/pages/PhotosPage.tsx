@@ -31,7 +31,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="Photo of the Eiffel Tower in Paris through some trees"
           ></img>
-          <Typography>Eiffel through trees</Typography>
         </Box>
         <Box>
           <img
@@ -40,7 +39,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="Canada Night Market"
           ></img>
-          <Typography>night market</Typography>
         </Box>
         <Box>
           <img
@@ -49,7 +47,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="A view of the Seine River from the Eiffel Tower"
           ></img>
-          <Typography>the river Seine</Typography>
         </Box>
         <Box>
           <img
@@ -58,7 +55,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="A view of the town of Vernazza in Cinque Terre"
           ></img>
-          <Typography>vernazza</Typography>
         </Box>
         <Box>
           <img
@@ -67,7 +63,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="A photo of a quiet Venice night"
           ></img>
-          <Typography>venice (quiet)</Typography>
         </Box>
         <Box>
           <img
@@ -76,7 +71,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="A view of Seattle from the ferry"
           ></img>
-          <Typography>ferry view</Typography>
         </Box>
         <Box>
           <img
@@ -85,7 +79,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="malatang"
           ></img>
-          <Typography>麻辣燙</Typography>
         </Box>
         <Box>
           <img
@@ -110,7 +103,6 @@ const PhotosPage = () => {
             width={"100%"}
             alt="A view of Taipei 101 from Elephant Mountain"
           ></img>
-          <Typography>象山</Typography>
         </Box>
       </Masonry>
       <Typography textAlign="left">More to come...</Typography>
