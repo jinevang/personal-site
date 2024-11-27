@@ -22,6 +22,9 @@ const StyledIndexPage = styled(Box)({
 
   [theme.breakpoints.down("lg")]: {
     width: "95%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 });
 
@@ -145,6 +148,9 @@ const IndexPage = () => {
           alignItems: "flex-end",
           alignContent: "center",
           width: "100%",
+          [theme.breakpoints.down("lg")]: {
+            alignItems: "center",
+          },
         }}
       >
         <Typography

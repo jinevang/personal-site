@@ -9,6 +9,9 @@ import { theme } from "styles/BasicTheme";
 const StyledPhotosPage = styled(Box)({
   [theme.breakpoints.down("lg")]: {
     padding: "1em",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   padding: "2em",
   userSelect: "none",
@@ -23,7 +26,7 @@ const PhotosPage = () => {
   return (
     <StyledPhotosPage>
       <h1>Photos</h1>
-      <Masonry spacing={2} columns={{ xs: 2, sm: 2, md: 3 }}>
+      <Masonry spacing={1.5} columns={{ xs: 2, sm: 2, md: 3 }}>
         <Box>
           <img
             src={require("../assets/eiffel.webp")}
