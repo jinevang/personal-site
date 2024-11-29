@@ -88,7 +88,6 @@ const PhotosPage = () => {
             src={require("../assets/circle.jpg")}
             loading="lazy"
             width={"100%"}
-            alt="circle"
           ></img>
         </Box>
         <Box>
@@ -96,7 +95,6 @@ const PhotosPage = () => {
             src={require("../assets/waterfront.webp")}
             loading="lazy"
             width={"100%"}
-            alt="A view of Taipei 101 from Elephant Mountain"
           ></img>
         </Box>
         <Box>
