@@ -184,12 +184,7 @@ const IndexPage = () => {
               Rock climbing
             </Typography>
           </CustomBox>
-          <CustomBox
-            bgcolor={colors.basicBlue.light}
-            height="15vh"
-            onClick={() => navigate("/drinks")}
-            clickable
-          >
+          <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
             <Typography
               color="#111110"
               fontSize={14}
@@ -199,8 +194,7 @@ const IndexPage = () => {
                 },
               }}
             >
-              There has been an update to the site! Check out the new Drink
-              Ratings page (rated out of 7)
+              Welcome to my site - here are a few things I&apos;m interested in!
             </Typography>
           </CustomBox>
           <CustomBox bgcolor="" image="true">
@@ -227,21 +221,9 @@ const IndexPage = () => {
             </Mailto>
           </CustomBox>
           <CustomBox bgcolor="" height="fit-content" image="true">
-            <video
-              width="100%"
-              height="100%"
-              ref={videoRef}
-              onClick={handleClick}
-              controlsList="nofullscreen nodownload"
-              controls
-            >
-              <source
-                src={require("../assets/airportpiano.mp4")}
-                type="video/mp4"
-              />
-            </video>
-            <Typography color={textColor} fontSize={14}>
-              Playing piano
+            <img src={require("../assets/singing.jpg")} />
+            <Typography color={textColor} fontSize={14} textAlign={"center"}>
+              Singing, playing piano, & making music
             </Typography>
           </CustomBox>
         </Masonry>
