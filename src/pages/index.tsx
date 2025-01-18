@@ -205,7 +205,7 @@ const IndexPage = () => {
           </CustomBox>
 
           <CustomBox bgcolor={colors.basicBlue.light} height="9vh">
-            <Mailto email="me@jinevang.com" subject="" body="">
+            <Mailto email="evan@jinevang.com" subject="Hi!" body="">
               <Box
                 sx={{
                   display: "flex",
