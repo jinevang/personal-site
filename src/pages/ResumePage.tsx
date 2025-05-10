@@ -213,6 +213,11 @@ const ResumePage = () => {
             <h4>Projects</h4>
             <Typography>
               <li>
+              Architectural and design lead on dependency & license monitoring project using Jenkins, PHP, and React
+              </li>
+            </Typography>
+            <Typography>
+              <li>
                 Contributed to the front-end development of new software
                 products and internal tools using React and MUI
               </li>

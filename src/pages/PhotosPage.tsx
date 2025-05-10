@@ -61,12 +61,21 @@ const PhotosPage = () => {
         </Box>
         <Box>
           <img
+            src={require("../assets/tulips.webp")}
+            loading="lazy"
+            width={"100%"}
+            alt="The Roozengaarde Tulips"
+          ></img>
+        </Box>
+        <Box>
+          <img
             src={require("../assets/venice_quiet.webp")}
             loading="lazy"
             width={"100%"}
             alt="A photo of a quiet Venice night"
           ></img>
         </Box>
+
         <Box>
           <img
             src={require("../assets/ferry_view.webp")}
