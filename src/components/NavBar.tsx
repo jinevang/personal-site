@@ -13,10 +13,13 @@ import { RiComputerLine } from "react-icons/ri";
 import { MdOutlinePhoto } from "react-icons/md";
 import { MdOutlinePerson } from "react-icons/md";
 import { IoMusicalNotes } from "react-icons/io5";
+import { FaCoffee } from "react-icons/fa";
+import { useAppSelector } from "hooks/app";
 
 const StyledNavBar = styled(Toolbar)<{ textcolor?: string; bgcolor?: string }>(
   ({ textcolor, bgcolor }) => ({
     userSelect: "none",
+    height: "100%",
     backgroundColor: "transparent",
     ":active": {
       backgroundColor: "transparent",
@@ -28,10 +31,8 @@ const StyledNavBar = styled(Toolbar)<{ textcolor?: string; bgcolor?: string }>(
       gap: "2ch",
       position: "fixed",
       alignItems: "center",
-
+      justifyContent: "center",
       left: "10ch",
-      top: "40vh",
-      bottom: "50vh",
       width: "fit-content",
       backgroundColor: "transparent",
     },
@@ -87,34 +88,6 @@ const StyledNavBar = styled(Toolbar)<{ textcolor?: string; bgcolor?: string }>(
   })
 );
 
-const navItems = [
-  {
-    label: "Home",
-    href: "/",
-    icon: <VscHome />,
-  },
-  {
-    label: "Resume",
-    href: "/resume",
-    icon: <RiComputerLine />,
-  },
-  {
-    label: "Photos",
-    href: "/photos",
-    icon: <MdOutlinePhoto />,
-  },
-  {
-    label: "Music",
-    href: "/music",
-    icon: <IoMusicalNotes />,
-  },
-  {
-    label: "About",
-    href: "/about",
-    icon: <MdOutlinePerson />,
-  },
-];
-
 const NavBar = () => {
   const navigate = useNavigate();
   const theme = useTheme();
@@ -122,6 +95,41 @@ const NavBar = () => {
   const navToRoute = (route: string) => {
     navigate(route);
   };
+
+  const { language } = useAppSelector((state) => state.general);
+
+  const navItems = [
+    {
+      label: language === 'EN' ? "Home" : '主頁',
+      href: "/",
+      icon: <VscHome />,
+    },
+    {
+      label: language === 'EN' ? "Resume" : '履歷',
+      href: "/resume",
+      icon: <RiComputerLine />,
+    },
+    {
+      label: language === 'EN' ? "Photos" : '照片',
+      href: "/photos",
+      icon: <MdOutlinePhoto />,
+    },
+    {
+      label: language === 'EN' ? "Music" : '音樂',
+      href: "/music",
+      icon: <IoMusicalNotes />,
+    },
+    {
+      label: "Café Ratings",
+      href: "/drinks",
+      icon: <FaCoffee />,
+    },
+    {
+      label: language === 'EN'? "About" : '介紹',
+      href: "/about",
+      icon: <MdOutlinePerson />,
+    },
+  ];
 
   return (
     <StyledNavBar

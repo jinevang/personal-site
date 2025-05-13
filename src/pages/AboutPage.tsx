@@ -7,6 +7,7 @@ import { Box, Button, List, ListItem, Typography, useTheme } from "@mui/material
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useAppSelector } from "hooks/app";
 
 const playlists = [
   "5xiUSBjTZa8DZzOLJFMYg8", // jazz & 老歌
@@ -54,6 +55,9 @@ const StyledAbout = styled(Box)<{ linkcolor: string }>(({ linkcolor }) => ({
 }));
 
 const AboutPage = () => {
+
+  const {language} = useAppSelector((state) => state.general);
+
   function seedBasedOnDay(arrLength: number): number {
     const today = new Date().toISOString().split("T")[0];
 
@@ -78,20 +82,20 @@ const AboutPage = () => {
   }, []);
   return (
     <StyledAbout linkcolor={theme.palette.primary.contrastText}>
-      <h1>About</h1>
-      <p>Hi, I&apos;m Evan! I&apos;m a software engineer based in Seattle.</p>
+      <h1>{language === 'EN' ? 'About' : '自我介紹'}</h1>
+      <p>{language === 'EN' ? 'Hi, I\'m Evan! I\'m a software engineer based in Seattle.' : '哈囉！我是Evan，我是位軟體工程師。'}</p>
       <List>
         <ListItem disablePadding>
-          🦦 recently graduated CSSE student from UWB
+          🦦 {language === 'EN' ? 'recently graduated CSSE student from UWB' : '最近從UWB畢業'}
         </ListItem>
-        <ListItem disablePadding>🧑🏻‍💻 full-stack software developer</ListItem>
+        <ListItem disablePadding>🧑🏻‍💻 full-stack {language === 'EN' ? 'software developer' : '軟體工程師'}</ListItem>
         <ListItem disablePadding>
-          🎵 I love playing, making, and listening to music
+          🎵 {language === 'EN' ? 'I love playing, making, and listening to music' : '喜歡做音樂'}
         </ListItem>
-        <ListItem disablePadding>🧗🏻 I love rock climbing and tennis</ListItem>
+        <ListItem disablePadding>🧗🏻 {language === 'EN' ? 'I love rock climbing and tennis' : '我超喜歡攀岩跟打網球'}</ListItem>
         <ListItem disablePadding>
           <span>
-            🎹 take a look at my{" "}
+            🎹 {language === 'EN' ? 'take a look at my' : '看看我的'}{" "}
             <a
               href="https://bit.ly/albumratings"
               target="_blank"
@@ -103,7 +107,7 @@ const AboutPage = () => {
         </ListItem>
         <ListItem disablePadding>
           <span>
-            🧋 take a look at my{" "}
+            🧋 {language === 'EN' ? 'take a look at my' : '看看我的'}{" "}
             <a
               href="https://bit.ly/drinkratings"
               target="_blank"
@@ -115,7 +119,7 @@ const AboutPage = () => {
         </ListItem>
         <ListItem disablePadding>
           <span>
-            🎶 follow me on{" "}
+            🎶 {language === 'EN' ? 'follow me on' : '追蹤我的'}{" "}
             <a
               href="https://open.spotify.com/user/jinsilky?si=758524874766450b"
               target="_blank"
@@ -126,7 +130,7 @@ const AboutPage = () => {
           </span>
         </ListItem>
         <br />
-        In my recent rotation:
+        {language === 'EN' ? 'In my recent rotation:' : '最近在聽的歌和播放清單：'}
         <ListItem disablePadding>
           <iframe
             style={{ borderRadius: "12px", borderColor: "transparent" }}
@@ -141,7 +145,7 @@ const AboutPage = () => {
         </ListItem>
       </List>
       <Typography sx={{ fontFamily: "inherit", fontSize: 20, fontWeight: 600 }}>
-        Links
+        {language === 'EN' ? 'Links' : '連結'}
       </Typography>
       <List
         sx={{

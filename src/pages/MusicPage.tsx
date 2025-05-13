@@ -6,6 +6,7 @@ import { Box, Typography } from "@mui/material";
 // Styles and Themes
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
+import { useAppSelector } from "hooks/app";
 
 const videos = [
   {
@@ -54,6 +55,8 @@ const MusicPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const {language} = useAppSelector((state) => state.general); 
+
   // const [current, setCurrent] = useState('');
 
   // const handleVideoClick = (id: string) => {
@@ -63,7 +66,7 @@ const MusicPage = () => {
 
   return (
     <StyledMusicPage>
-      <h1>Music</h1>
+      <h1>{language === 'EN' ? 'Music' : '音樂'}</h1>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "2ch" }}>
         {videos.map((v, i) => (
           <Box

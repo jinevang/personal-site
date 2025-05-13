@@ -10,6 +10,9 @@ import { theme } from "styles/BasicTheme";
 import { colors } from "constants/colors";
 import { IoMail } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { generalSlice } from '../reducers/index';
+import { useAppSelector } from "hooks/app";
 
 const StyledIndexPage = styled(Box)({
   width: "60vw",
@@ -19,6 +22,7 @@ const StyledIndexPage = styled(Box)({
   justifyItems: "center",
   alignContent: "center",
   height: "100vh",
+  overflowX: 'hidden',
 
   [theme.breakpoints.down("lg")]: {
     width: "95%",
@@ -117,6 +121,11 @@ const CustomBox = styled(Box)<{
 }));
 
 const IndexPage = () => {
+
+  const { language } = useAppSelector((app) => app.general);
+
+  console.log(language);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -164,7 +173,7 @@ const IndexPage = () => {
             },
           }}
         >
-          Hello!
+          {language === 'EN' ? 'Hello!' : '你好！'}
         </Typography>
         <Masonry
           columns={{ lg: 3, sm: 2, xs: 2 }}
@@ -174,33 +183,33 @@ const IndexPage = () => {
         >
           <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
             <Typography color="#111110" fontSize={14}>
-              Hi, I&apos;m Evan! I am a Software Engineer based in Seattle, WA.
+              {language === 'EN' ? 'Hi, I\'m Evan! I am a Software Engineer based in Seattle, WA.' : '哈囉，我是Evan！ 我是位軟體工程師。'}
             </Typography>
           </CustomBox>
 
           <CustomBox bgcolor="" height="fit-content" image="true" key={3}>
             <img src={require("../assets/rock_climbing.jpg")} />
             <Typography fontSize={14} color={textColor}>
-              Rock climbing
+              {language === 'EN' ? 'Rock climbing' : '攀岩'}
             </Typography>
           </CustomBox>
           <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
             <Typography
               color="#111110"
               fontSize={14}
-              sx={{
-                ":hover": {
-                  cursor: "pointer",
-                },
-              }}
+              // sx={{
+              //   ":hover": {
+              //     cursor: "pointer",
+              //   },
+              // }}
             >
-              Welcome to my site - here are a few things I&apos;m interested in!
+              {language === 'EN' ? 'Welcome to my site - here are a few things I\'m interested in!' : '歡迎來到我的網站！ 讓這些照片介紹一下我喜歡什麼。'}
             </Typography>
           </CustomBox>
           <CustomBox bgcolor="" image="true">
             <img src={require("../assets/hiking.webp")} />
             <Typography fontSize={14} color={textColor}>
-              Hiking around the PNW
+              {language === 'EN' ? ' Hiking around the PNW' : '在PNW附近爬山'}
             </Typography>
           </CustomBox>
 
@@ -215,15 +224,15 @@ const IndexPage = () => {
               >
                 <IoMail />{" "}
                 <Typography color={colors.basicBlue.darkest} fontSize={16}>
-                  Send me an email!
+                  {language === 'EN' ? 'Send me an email!' : '傳 E-mail 給我'}
                 </Typography>
               </Box>
             </Mailto>
           </CustomBox>
           <CustomBox bgcolor="" height="fit-content" image="true">
-            <img src={require("../assets/singing.jpg")} />
+            <img src={require("../assets/shadow.webp")} />
             <Typography color={textColor} fontSize={14} textAlign={"center"}>
-              Singing, playing piano, & making music
+              {language === 'EN' ? 'Interior design for a cat\'s home' : '跟貓咪玩'}
             </Typography>
           </CustomBox>
         </Masonry>

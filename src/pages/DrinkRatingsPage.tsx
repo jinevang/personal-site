@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import {
+  Alert,
   Box,
   Chip,
   CircularProgress,
+  IconButton,
   MenuItem,
   Select,
+  Snackbar,
   Typography,
 } from "@mui/material";
 import { useGetPlacesQuery } from "api/apiSlice";
 import { FaBook, FaCoffee } from "react-icons/fa";
-import { FaBurger } from "react-icons/fa6";
+import { FaBurger, FaXmark } from "react-icons/fa6";
 
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
+import { useAppSelector } from "hooks/app";
 
 const StyledDrinksPage = styled(Box)({
   [theme.breakpoints.down("lg")]: {
@@ -46,8 +50,9 @@ const DrinkRatingsPage = () => {
   );
   const rows = data?.values.slice(1);
   const header = data?.values[0];
+  const [alertOpen, setAlertOpen] = useState(true);
 
-  console.log(drinkLocationData);
+  const {language} = useAppSelector((state) => state.general);
 
   const handleSort = (e) => {
     setSortStyle(e.target.value);
@@ -123,6 +128,8 @@ const DrinkRatingsPage = () => {
         }}
       >
         <h1>Drink Ratings</h1>
+        {language === 'CN' && <Snackbar color='info' message={'不好意思，這頁還沒完成翻譯！'} action={<IconButton color={'inherit'} onClick={() => setAlertOpen(false)}><FaXmark/></IconButton>} open={alertOpen} anchorOrigin={{vertical: 'top', horizontal: 'center'}} onClose={() => setAlertOpen(false)}/>}
+        
         <Select
           sx={{
             height: "5ch",

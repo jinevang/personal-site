@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // MUI
 import {
+  Alert,
   Box,
   Grid2 as Grid,
   IconButton,
+  Snackbar,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -14,6 +16,8 @@ import { theme } from "styles/BasicTheme";
 import styled from "@emotion/styled";
 import { IoMdDownload } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
+import { useAppSelector } from "hooks/app";
+import { FaXmark } from "react-icons/fa6";
 
 const ResumeCard = styled(Box)({
   borderRadius: "5px",
@@ -108,6 +112,9 @@ const ResumePage = () => {
 
   const themeUser = useTheme();
 
+  const { language } = useAppSelector((state) => state.general);
+  const [alertOpen, setAlertOpen] = useState(true);
+
   const resumeCardBackground = themeUser.palette.secondary.main;
 
   return (
@@ -120,7 +127,9 @@ const ResumePage = () => {
           justifyContent: "space-between",
         }}
       >
-        <h1>Resume</h1>
+        <h1>{language === 'EN' ? 'Resume' : '履歷'}</h1>
+        {language === 'CN' && <Snackbar color='info' message={'不好意思，這頁還沒完成翻譯！'} action={<IconButton color={'inherit'} onClick={() => setAlertOpen(false)}><FaXmark/></IconButton>} open={alertOpen} anchorOrigin={{vertical: 'top', horizontal: 'center'}} onClose={() => setAlertOpen(false)}/>}
+
         <Box sx={{ alignItems: "center", display: "flex" }}>
           <IconButton
             href={require("../assets/resume.pdf")}
@@ -132,7 +141,7 @@ const ResumePage = () => {
             />
           </IconButton>
           <Typography fontSize={14} pr={"1rem"}>
-            Download
+            {language === 'EN' ? 'Download' : '下載'}
           </Typography>
         </Box>
       </Box>
@@ -187,7 +196,7 @@ const ResumePage = () => {
       </ResumeCard>
 
       <br />
-      <h2>Experience</h2>
+      <h2>{language === 'EN' ? 'Experience' : '經驗'}</h2>
       <ResumeSection>
         <ResumeCard sx={{ backgroundColor: resumeCardBackground }}>
           <InfoHolder>

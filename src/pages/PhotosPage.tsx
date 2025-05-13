@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { Masonry } from "@mui/lab";
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
+import { useAppSelector } from "hooks/app";
 
 // TODO: need to implement this in a way better way - why does it need require?
 
@@ -23,9 +24,11 @@ const StyledPhotosPage = styled(Box)({
 });
 
 const PhotosPage = () => {
+
+  const {language} = useAppSelector((state) => state.general);
   return (
     <StyledPhotosPage>
-      <h1>Photos</h1>
+      <h1>{language === 'EN' ? 'Photos' : '照片'}</h1>
       <Masonry spacing={1.5} columns={{ xs: 2, sm: 2, md: 3 }}>
         <Box>
           <img
