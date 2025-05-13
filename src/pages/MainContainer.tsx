@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Box, CssBaseline, IconButton, Switch, ThemeProvider, useMediaQuery } from "@mui/material"
+import { Box, CssBaseline, Divider, IconButton, Switch, ThemeProvider, useMediaQuery } from "@mui/material"
 import NavBar from "components/NavBar"
 import PageWrapper from "components/PageWrapper"
 import AppRouter from "config/Routes"
-import { FaLanguage, FaMoon } from "react-icons/fa"
+import { FaLanguage, FaMoon, FaSun } from "react-icons/fa"
 import { BrowserRouter } from "react-router-dom"
 import { StyledCenter } from "styles/basic-styles"
 import { getTheme, theme } from "styles/BasicTheme"
@@ -57,11 +57,17 @@ const MainContainer = () => {
 								borderRadius: '50px', 
 								padding: '1ch', 
 								margin: '1ch' 
-							}}}
+							}
+						}}
 						>
-							<FaMoon aria-label='Switch between light and dark mode' style={{borderRadius: '50px'}}size={20} onClick={handleThemeChange}/>
+							<IconButton onClick={handleThemeChange} size='small' aria-label='Switch between light and dark mode' >
+								{darkMode ? <FaSun /> : <FaMoon/>} 
+							</IconButton>
 							{!isMobile && <Switch aria-label='Switch between light and dark mode' checked={darkMode} onChange={handleThemeChange}/>}    
-								<IconButton onClick={() => {console.log(languageLocal); dispatch(setLanguage(languageLocal === 'EN' ? 'CN' : 'EN')); setLanguageLocal(languageLocal === 'EN' ? 'CN' : 'EN');}}><FaLanguage/></IconButton>
+								|
+								<IconButton onClick={() => { dispatch(setLanguage(languageLocal === 'EN' ? 'CN' : 'EN')); setLanguageLocal(languageLocal === 'EN' ? 'CN' : 'EN');}} size={isMobile ? 'small' : 'medium'}>
+									<FaLanguage/>
+								</IconButton>
 						</Box>
 	
 						<StyledCenter id='styledCenter'>
