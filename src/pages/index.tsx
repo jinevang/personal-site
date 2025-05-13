@@ -130,20 +130,20 @@ const IndexPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const themeUser = useTheme();
   const videoRef = useRef(null);
 
-  const handleClick = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  };
+  // const handleClick = () => {
+  //   if (videoRef.current) {
+  //     if (videoRef.current.paused) {
+  //       videoRef.current.play();
+  //     } else {
+  //       videoRef.current.pause();
+  //     }
+  //   }
+  // };
 
   const textColor = themeUser.palette.primary.contrastText;
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
@@ -173,7 +173,7 @@ const IndexPage = () => {
             },
           }}
         >
-          {language === 'EN' ? 'Hello!' : '你好！'}
+          {language === 'EN' ? 'Hello!' : '哈囉！'}
         </Typography>
         <Masonry
           columns={{ lg: 3, sm: 2, xs: 2 }}
@@ -183,7 +183,7 @@ const IndexPage = () => {
         >
           <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
             <Typography color="#111110" fontSize={14}>
-              {language === 'EN' ? 'Hi, I\'m Evan! I am a Software Engineer based in Seattle, WA.' : '哈囉，我是Evan！ 我是位軟體工程師。'}
+              {language === 'EN' ? 'Hi, I\'m Evan! I am a Software Engineer based in Seattle, WA.' : '嗨，我是Evan！ 我是位軟體工程師。'}
             </Typography>
           </CustomBox>
 
