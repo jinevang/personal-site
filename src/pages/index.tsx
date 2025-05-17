@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { generalSlice } from '../reducers/index';
 import { useAppSelector } from "hooks/app";
+import { strings } from "constants/strings";
 
 const StyledIndexPage = styled(Box)({
   width: "60vw",
@@ -173,7 +174,7 @@ const IndexPage = () => {
             },
           }}
         >
-          {language === 'EN' ? 'Hello!' : '哈囉！'}
+          {strings.mainPage.hello[language]}
         </Typography>
         <Masonry
           columns={{ lg: 3, sm: 2, xs: 2 }}
@@ -183,14 +184,14 @@ const IndexPage = () => {
         >
           <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
             <Typography color="#111110" fontSize={14}>
-              {language === 'EN' ? 'Hi, I\'m Evan! I am a Software Engineer based in Seattle, WA.' : '嗨，我是Evan！ 我是位軟體工程師。'}
+              {strings.mainPage.mainIntro[language]}
             </Typography>
           </CustomBox>
 
           <CustomBox bgcolor="" height="fit-content" image="true" key={3}>
             <img src={require("../assets/rock_climbing.jpg")} />
             <Typography fontSize={14} color={textColor}>
-              {language === 'EN' ? 'Rock climbing' : '攀岩'}
+              {strings.mainPage.rockClimbingCaption[language]}
             </Typography>
           </CustomBox>
           <CustomBox bgcolor={colors.basicBlue.light} height="15vh">
@@ -203,13 +204,13 @@ const IndexPage = () => {
               //   },
               // }}
             >
-              {language === 'EN' ? 'Welcome to my site - here are a few things I\'m interested in!' : '歡迎來到我的網站！ 讓這些照片介紹一下我喜歡什麼。'}
+              {strings.mainPage.siteWelcome[language]}
             </Typography>
           </CustomBox>
           <CustomBox bgcolor="" image="true">
             <img src={require("../assets/hiking.webp")} />
             <Typography fontSize={14} color={textColor}>
-              {language === 'EN' ? ' Hiking around the PNW' : '在PNW附近爬山'}
+              {strings.mainPage.hikingCaption[language]}
             </Typography>
           </CustomBox>
 
@@ -224,7 +225,7 @@ const IndexPage = () => {
               >
                 <IoMail />{" "}
                 <Typography color={colors.basicBlue.darkest} fontSize={16}>
-                  {language === 'EN' ? 'Send me an email!' : '傳 E-mail 給我'}
+                  {strings.mainPage.emailPrompt[language]}
                 </Typography>
               </Box>
             </Mailto>
@@ -232,7 +233,7 @@ const IndexPage = () => {
           <CustomBox bgcolor="" height="fit-content" image="true">
             <img src={require("../assets/shadow.webp")} />
             <Typography color={textColor} fontSize={14} textAlign={"center"}>
-              {language === 'EN' ? 'Interior design for a cat\'s home' : '跟貓咪玩'}
+              {strings.mainPage.shadowCaption[language]}
             </Typography>
           </CustomBox>
         </Masonry>

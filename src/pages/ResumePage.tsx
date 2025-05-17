@@ -18,6 +18,7 @@ import { IoMdDownload } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { useAppSelector } from "hooks/app";
 import { FaXmark } from "react-icons/fa6";
+import { strings } from "constants/strings";
 
 const ResumeCard = styled(Box)({
   borderRadius: "5px",
@@ -127,7 +128,7 @@ const ResumePage = () => {
           justifyContent: "space-between",
         }}
       >
-        <h1>{language === 'EN' ? 'Resume' : '履歷'}</h1>
+        <h1>{strings.general.resume[language]}</h1>
         {language === 'CN' && <Snackbar color='info' message={'不好意思，這頁還沒完成翻譯！'} action={<IconButton color={'inherit'} onClick={() => setAlertOpen(false)}><FaXmark/></IconButton>} open={alertOpen} anchorOrigin={{vertical: 'top', horizontal: 'center'}} onClose={() => setAlertOpen(false)}/>}
 
         <Box sx={{ alignItems: "center", display: "flex" }}>
@@ -141,7 +142,7 @@ const ResumePage = () => {
             />
           </IconButton>
           <Typography fontSize={14} pr={"1rem"}>
-            {language === 'EN' ? 'Download' : '下載'}
+            {strings.general.download[language]}
           </Typography>
         </Box>
       </Box>
@@ -196,7 +197,7 @@ const ResumePage = () => {
       </ResumeCard>
 
       <br />
-      <h2>{language === 'EN' ? 'Experience' : '經驗'}</h2>
+      <h2>{strings.resumePage.experiences[language]}</h2>
       <ResumeSection>
         <ResumeCard sx={{ backgroundColor: resumeCardBackground }}>
           <InfoHolder>
@@ -244,7 +245,7 @@ const ResumePage = () => {
               </li>
             </Typography>
 
-            <h4>Responsibilities</h4>
+            <h4>{strings.resumePage.responsibilities[language]}</h4>
             <Typography>
               <li>
                 Followed Agile methodologies, managing both self-assigned and

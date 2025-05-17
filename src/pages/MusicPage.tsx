@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 
 // MUI
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 // Styles and Themes
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
 import { useAppSelector } from "hooks/app";
+import { strings } from "constants/strings";
 
 const videos = [
   {
@@ -66,7 +67,7 @@ const MusicPage = () => {
 
   return (
     <StyledMusicPage>
-      <h1>{language === 'EN' ? 'Music' : '音樂'}</h1>
+      <h1>{strings.general.music[language]}</h1>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "2ch" }}>
         {videos.map((v, i) => (
           <Box
@@ -88,7 +89,7 @@ const MusicPage = () => {
               allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
             ></iframe>
             {
-              <Box key={`video-info-${i}`}>
+              <Stack key={`video-info-${i}`}>
                 <Typography
                   fontFamily={"inherit"}
                   fontSize={20}
@@ -96,9 +97,13 @@ const MusicPage = () => {
                 >
                   {v.title}
                 </Typography>
-                {/* <br/> */}
-                {/* <Box>{v.credits.split('\n').map((l, i) => <Typography key={i}>{l}</Typography>)}</Box> */}
-              </Box>
+                <br/>
+                <Box sx={{
+                  [theme.breakpoints.down('md')]: {
+                    display: 'none'
+                  }
+                }}>{v.credits.split('\n').map((l, i) => <Typography fontSize={12} key={i}>{l}</Typography>)}</Box>
+              </Stack>
             }
           </Box>
         ))}

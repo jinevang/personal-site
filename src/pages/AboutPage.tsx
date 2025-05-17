@@ -8,6 +8,7 @@ import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useAppSelector } from "hooks/app";
+import { strings } from "constants/strings";
 
 const playlists = [
   "5xiUSBjTZa8DZzOLJFMYg8", // jazz & 老歌
@@ -80,22 +81,23 @@ const AboutPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <StyledAbout linkcolor={theme.palette.primary.contrastText}>
-      <h1>{language === 'EN' ? 'About' : '自我介紹'}</h1>
-      <p>{language === 'EN' ? 'Hi, I\'m Evan! I\'m a software engineer based in Seattle.' : '哈囉！我是Evan，我是位軟體工程師。'}</p>
+      <h1>{strings.aboutPage.title[language]}</h1>
+      <p>{strings.aboutPage.intro[language]}</p>
       <List>
         <ListItem disablePadding>
-          🦦 {language === 'EN' ? 'recently graduated CSSE student from UWB' : '最近從UWB畢業'}
+          🦦 {strings.aboutPage.graduatedMessage[language]}
         </ListItem>
-        <ListItem disablePadding>🧑🏻‍💻 full-stack {language === 'EN' ? 'software developer' : '軟體工程師'}</ListItem>
+        <ListItem disablePadding>🧑🏻‍💻 {strings.aboutPage.softwarePositionMessage[language]}</ListItem>
         <ListItem disablePadding>
-          🎵 {language === 'EN' ? 'I love playing, making, and listening to music' : '喜歡做音樂'}
+          🎵 {strings.aboutPage.musicMessage[language]}
         </ListItem>
-        <ListItem disablePadding>🧗🏻 {language === 'EN' ? 'I love rock climbing and tennis' : '我超喜歡攀岩跟打網球'}</ListItem>
+        <ListItem disablePadding>🧗🏻 {strings.aboutPage.sportsMessage[language]}</ListItem>
         <ListItem disablePadding>
           <span>
-            🎹 {language === 'EN' ? 'take a look at my' : '看看我的'}{" "}
+            🎹 {strings.aboutPage.takeALook[language]}{" "}
             <a
               href="https://bit.ly/albumratings"
               target="_blank"
@@ -107,7 +109,7 @@ const AboutPage = () => {
         </ListItem>
         <ListItem disablePadding>
           <span>
-            🧋 {language === 'EN' ? 'take a look at my' : '看看我的'}{" "}
+            🧋 {strings.aboutPage.takeALook[language]}{" "}
             <a
               href="https://bit.ly/drinkratings"
               target="_blank"
@@ -119,7 +121,7 @@ const AboutPage = () => {
         </ListItem>
         <ListItem disablePadding>
           <span>
-            🎶 {language === 'EN' ? 'follow me on' : '追蹤我的'}{" "}
+            🎶 {strings.aboutPage.followMessage[language]}{" "}
             <a
               href="https://open.spotify.com/user/jinsilky?si=758524874766450b"
               target="_blank"
@@ -130,7 +132,7 @@ const AboutPage = () => {
           </span>
         </ListItem>
         <br />
-        {language === 'EN' ? 'In my recent rotation:' : '最近在聽的歌和播放清單：'}
+        {strings.aboutPage.recentRotation[language]}
         <ListItem disablePadding>
           <iframe
             style={{ borderRadius: "12px", borderColor: "transparent" }}
@@ -145,7 +147,7 @@ const AboutPage = () => {
         </ListItem>
       </List>
       <Typography sx={{ fontFamily: "inherit", fontSize: 20, fontWeight: 600 }}>
-        {language === 'EN' ? 'Links' : '連結'}
+        {strings.general.links[language]}
       </Typography>
       <List
         sx={{

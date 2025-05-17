@@ -15,6 +15,7 @@ import { MdOutlinePerson } from "react-icons/md";
 import { IoMusicalNotes } from "react-icons/io5";
 import { FaCoffee } from "react-icons/fa";
 import { useAppSelector } from "hooks/app";
+import { strings } from "constants/strings";
 
 const StyledNavBar = styled(Toolbar)<{ textcolor?: string; bgcolor?: string }>(
   ({ textcolor, bgcolor }) => ({
@@ -100,22 +101,22 @@ const NavBar = () => {
 
   const navItems = [
     {
-      label: language === 'EN' ? "Home" : '主頁',
+      label: strings.general.home[language],
       href: "/",
       icon: <VscHome />,
     },
     {
-      label: language === 'EN' ? "Resume" : '履歷',
+      label: strings.general.resume[language],
       href: "/resume",
       icon: <RiComputerLine />,
     },
     {
-      label: language === 'EN' ? "Photos" : '照片',
+      label: strings.general.photos[language],
       href: "/photos",
       icon: <MdOutlinePhoto />,
     },
     {
-      label: language === 'EN' ? "Music" : '音樂',
+      label: strings.general.music[language],
       href: "/music",
       icon: <IoMusicalNotes />,
     },
@@ -125,7 +126,7 @@ const NavBar = () => {
       icon: <FaCoffee />,
     },
     {
-      label: language === 'EN'? "About" : '介紹',
+      label: strings.general.about[language],
       href: "/about",
       icon: <MdOutlinePerson />,
     },
