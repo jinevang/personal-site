@@ -125,6 +125,7 @@ const DrinkRatingsPage = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          width: '100%'
         }}
       >
         <h1>Drink Ratings</h1>
