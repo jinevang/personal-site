@@ -124,7 +124,7 @@ const DrinkRatingsPage = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: "left",
           width: '100%'
         }}
       >
