@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 
 // MUI
 import {
-  Alert,
   Box,
   Grid2 as Grid,
   IconButton,
-  Snackbar,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -114,7 +112,6 @@ const ResumePage = () => {
   const themeUser = useTheme();
 
   const { language } = useAppSelector((state) => state.general);
-  const [alertOpen, setAlertOpen] = useState(true);
 
   const resumeCardBackground = themeUser.palette.secondary.main;
 
@@ -129,7 +126,6 @@ const ResumePage = () => {
         }}
       >
         <h1>{strings.general.resume[language]}</h1>
-        {language === 'CN' && <Snackbar color='info' message={'不好意思，這頁還沒完成翻譯！'} action={<IconButton color={'inherit'} onClick={() => setAlertOpen(false)}><FaXmark/></IconButton>} open={alertOpen} anchorOrigin={{vertical: 'top', horizontal: 'center'}} onClose={() => setAlertOpen(false)}/>}
 
         <Box sx={{ alignItems: "center", display: "flex" }}>
           <IconButton
