@@ -66,7 +66,7 @@ export const getTheme = (mode: any) =>
               contrastText: "#034C8C",
             },
             background: {
-              default: "#ffffff",
+              default: "#FAF9F6",
             },
           }
         : {
