@@ -131,6 +131,18 @@ const AboutPage = () => {
             </a>
           </span>
         </ListItem>
+        <ListItem disablePadding>
+          <span>
+            🎶 {language === 'EN' && 'or, '}{strings.aboutPage.followMessage[language]}{" "}
+            <a
+              href="https://music.apple.com/profile/evanjin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              apple music!
+            </a>
+          </span>
+        </ListItem>
         <br />
         {strings.aboutPage.recentRotation[language]}
         <ListItem disablePadding>

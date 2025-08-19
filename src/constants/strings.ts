@@ -51,7 +51,7 @@ export const strings = {
 			CN: '喜歡做音樂'
 		},
 		sportsMessage: {
-			EN: 'I love rock climbing and playing tennis',
+			EN: 'Avid rock climber and casual tennis player',
 			CN: '我超喜歡攀岩跟打網球'
 		},
 		takeALook: {
