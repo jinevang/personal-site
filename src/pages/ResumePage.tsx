@@ -394,7 +394,13 @@ const ResumePage = () => {
               </li>
             </Typography>
             <Typography>
-              <li>Ability to view monthly and yearly summaries</li>
+              <li>View monthly and yearly summaries</li>
+            </Typography>
+            <Typography>
+              <li>View categories and locations based on frequency and amount</li>
+            </Typography>
+            <Typography>
+              <li>Robust settings functionality for recurring transactions & category management</li>
             </Typography>
             <Typography>
               <li>Stores all data locally in JSON files</li>
