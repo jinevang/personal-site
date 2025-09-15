@@ -9,9 +9,6 @@ import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
 import { colors } from "constants/colors";
 import { IoMail } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { generalSlice } from '../reducers/index';
 import { useAppSelector } from "hooks/app";
 import { strings } from "constants/strings";
 
@@ -131,20 +128,7 @@ const IndexPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // const navigate = useNavigate();
-
   const themeUser = useTheme();
-  const videoRef = useRef(null);
-
-  // const handleClick = () => {
-  //   if (videoRef.current) {
-  //     if (videoRef.current.paused) {
-  //       videoRef.current.play();
-  //     } else {
-  //       videoRef.current.pause();
-  //     }
-  //   }
-  // };
 
   const textColor = themeUser.palette.primary.contrastText;
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
@@ -198,11 +182,6 @@ const IndexPage = () => {
             <Typography
               color="#111110"
               fontSize={14}
-              // sx={{
-              //   ":hover": {
-              //     cursor: "pointer",
-              //   },
-              // }}
             >
               {strings.mainPage.siteWelcome[language]}
             </Typography>

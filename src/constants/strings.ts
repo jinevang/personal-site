@@ -5,7 +5,7 @@ export const strings = {
 			CN: "哈囉！",
 		},
 		mainIntro: {
-			EN: 'Hi, I\'m Evan! I am a Software Engineer based in Seattle, WA.',
+			EN: 'Hi, I\'m Evan! I am a Software Engineer based in Seattle, WA. I mostly work in React and am always trying and learning new things.',
 			CN: '嗨，我是Evan！ 我是位軟體工程師。'
 		},
 		siteWelcome: {
