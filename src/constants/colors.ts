@@ -6,4 +6,8 @@ export const colors = {
     darker: '#3aa2f8',
     darkest: '#034C8C',
   },
+  mediaColors: {
+    soundcloud: '#FF2900',
+    youtube: "#F00"
+  }
 };

@@ -1,37 +1,77 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // MUI
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid2, IconButton, Stack, Typography } from "@mui/material";
 
 // Styles and Themes
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
 import { useAppSelector } from "hooks/app";
 import { strings } from "constants/strings";
+import { FaPlay, FaPlayCircle, FaSoundcloud, FaStopCircle, FaYoutube } from "react-icons/fa";
+import { colors } from "constants/colors";
 
-const videos = [
+const releases: {title: string, releaseDate: string, image: string, soundcloudLink?: string, youtubeLinkToEmbed?: string, youtubeLink: string, 
+  tracklist: 
+  {title: string, artists?: string[], length?: number}[]
+}[] = [
   {
-    id: "september-2023",
-    title: "September 2023",
-    credits:
-      "Arranged by: Ryan Phan, Evan Jin, Darren Hartono, Richie Phan\nSolo Vocals: Richie Phan, Ryan Phan, Evan Jin, Darren Hartono\nBacking Vocals: Evan Jin, Ryan Phan\nPiano: Evan Jin, Ryan Phan\nBeatboxing: Darren Hartono\nCowbell: Ryan Phan\nGuitar (listen closely [it's muted]): Dustin Sumarli \n Moral support: Matthew Ly\nOriginal Song by Earth, Wind & Fire\nprod by jinevang",
-    link: "https://www.youtube.com/embed/UqjIRZik4C4?si=BSEek4zISotZGbO4",
+    title: 'An Evan Christmas',
+    releaseDate: '12/12/2025',
+    soundcloudLink: 'https://soundcloud.com/evanjin/sets/an-evan-christmas',
+    youtubeLink: 'https://www.youtube.com/playlist?list=PLziapNNLJO45GDz7DCjPzlvUTnaRBKIFr',
+    tracklist: [
+      {
+        title: 'It\'s Gonna Snow (Intro)',
+        artists: ['Evan Jin'],
+        length: 1
+      },
+      {
+        title: 'Winter Wonderland',
+        artists: ['Evan Jin', 'Darren Hartono', 'Richie Phan', 'Ryan Phan']
+      },
+      {
+        title: 'Where Did My Scarf Go? (Interlude)',
+        artists: ['Evan Jin']
+      },
+      {
+        title: 'I\'ll Be Home for Christmas',
+        artists: ['Evan Jin', 'Darren Hartono', 'Richie Phan', 'Ryan Phan']
+      },
+      {
+        title: 'The Christmas Song',
+        artists: ['Evan Jin']
+      }
+    ],
+    youtubeLinkToEmbed: 'https://www.youtube.com/embed/videoseries?si=bu0KZHKdCbtvAkT-&amp;controls=0&amp;list=PLziapNNLJO45GDz7DCjPzlvUTnaRBKIFr',
+    image: 'an_evan_christmas.jpeg'
   },
   {
-    id: "home-for-christmas",
-    title: "I'll Be Home For Christmas",
-    credits:
-      "Arranged by Darren Hartono, Evan Jin, Richie Phan, Ryan Phan\nLead Vocals: Darren Hartono, Richie Phan, Evan Jin\nBacking Vocals: Darren Hartono, Richie Phan, Evan Jin\nBass: Ryan Phan\nPiano: Evan Jin\nSnaps: Evan Jin, Ryan Phan\nprod jinevang\nLyrics by Kim Gannon\nComposed by Walter Kent",
-    link: "https://www.youtube.com/embed/8ZjBeWsHQ90?si=WppzEUg5291qFzwJ",
+    title: 'September 2023: The Most Ambitious Update',
+    releaseDate: '09/21/2023',
+    soundcloudLink: 'https://soundcloud.com/evanjin/september-2023-the-most-ambitious-update',
+    tracklist: [
+      {title: 'September 2023: The Most Ambitious Update', artists: ['Evan Jin', 'Darren Hartono', 'Richie Phan', 'Ryan Phan']}
+    ],
+    youtubeLink: 'https://www.youtube.com/watch?v=UqjIRZik4C4',
+    youtubeLinkToEmbed: 'https://www.youtube.com/embed/UqjIRZik4C4?si=Qk5AkfDSXP_6cZU9',
+    image: 'September_2023.png'
   },
-  {
-    id: "winter-wonderland",
-    title: "Winter Wonderland",
-    credits:
-      "Performed by Darren Hartono, Richie Phan, Ryan Phan, & Evan Jin\nArranged by ALotOfRice, ScoopGuy, Slendarp, jinevang\nSolo Vocals: ALotOfRice, ScoopGuy, jinevang\nSolo: Slendarp\nPiano: Slendarp\nDrums: ALotOfRice\nBacking Vocals: ScoopGuy, Slendarp, jinevang\nBass (Cello): ScoopGuy\nprod. by jinevang\n\nOriginal composition/lyrics by Felix Bernard and Richard Bernhard Smith",
-    link: "https://www.youtube.com/embed/Bj6i43N8Vy4?si=vKnWy4FvCk8RAJYs",
-  },
-];
+  // {
+  //   title: 'September 2022',
+  //   releaseDate: '09/21/2022',
+  //   soundcloudLink: 'https://soundcloud.com/evanjin/september?in=evanjin/sets/september',
+  //   tracklist: [
+  //     {
+  //       title: 'September 2022',
+  //       artists: ['Evan Jin', 'Darren Hartono', 'Richie Phan']
+  //     }
+  //   ],
+  //   youtubeLinkToEmbed:'https://www.youtube.com/embed/akQwinO5fYE?si=TCUnogDsOLAviAHS',
+  //   image: 'september_2022.jpeg',
+  //   youtubeLink: 'https://www.youtube.com/watch?v=akQwinO5fYE'
+  // }
+]
 
 const StyledMusicPage = styled(Box)({
   [theme.breakpoints.down("lg")]: {
@@ -49,6 +89,7 @@ const StyledMusicPage = styled(Box)({
     borderRadius: "5px",
   },
   paddingBottom: "10rem",
+  width: '100%'
 });
 
 const MusicPage = () => {
@@ -56,57 +97,74 @@ const MusicPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const [playing, setPlaying] = useState<number>();
+  const [hovering, setHovering] = useState<number>();
+
   const {language} = useAppSelector((state) => state.general); 
-
-  // const [current, setCurrent] = useState('');
-
-  // const handleVideoClick = (id: string) => {
-  //   console.log('set with', id);
-  //   setCurrent(id);
-  // }
 
   return (
     <StyledMusicPage>
       <h1>{strings.general.music[language]}</h1>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: "2ch" }}>
-        {videos.map((v, i) => (
-          <Box
-            key={`video-frame-${i}`}
-            sx={{
-              display: "flex",
-              gap: "2ch",
-              justifyContent: "flex-start",
-              flexWrap: "wrap",
-            }}
-          >
-            <iframe
-              style={{ flexShrink: 0 }}
-              key={`video-${i}`}
-              width="560"
-              height="315"
-              src={v.link}
-              title="YouTube video player"
-              allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-            ></iframe>
-            {
-              <Stack key={`video-info-${i}`}>
-                <Typography
-                  fontFamily={"inherit"}
-                  fontSize={20}
-                  textOverflow={"ellipsis"}
-                >
-                  {v.title}
-                </Typography>
-                <br/>
-                <Box sx={{
-                  [theme.breakpoints.down('md')]: {
-                    display: 'none'
-                  }
-                }}>{v.credits.split('\n').map((l, i) => <Typography fontSize={12} key={i}>{l}</Typography>)}</Box>
-              </Stack>
-            }
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "2ch", width: '100%' }}>
+        {releases?.map((r, i) => <Box key={`release-${r.title}`} width='100%'>
+          <Stack direction='row' gap='18px' width='100%'>
+          <Stack width='30%' gap='8px'>
+          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', cursor: 'pointer'}} 
+          onMouseEnter={() => {setHovering(i)}}
+          onMouseLeave={() => setHovering(-1)}
+          onClick={(e) => {e.stopPropagation(); setPlaying(playing === i ? -1 : i);}}
+>
+          <FaPlayCircle size='100px' style={{position: 'absolute', display: hovering===i && playing !== i ? 'inherit' : 'none'}}/>
+          <FaStopCircle size='100px' style={{position: 'absolute', display: hovering === i && playing === i ? 'inherit' : 'none'}}/>
+          <img src={require(`../assets/${r.image}`)} 
+          style={hovering === i ? {
+            opacity: 0.75,
+                        width: '100%',
+                        display: 'inherit'
+          } : {
+            width: '100%',
+                        display: 'inherit'
+
+          }}          
+          />
+
           </Box>
-        ))}
+          <Stack direction='row' gap='8px' justifyContent={'center'}>
+          {r.soundcloudLink && <IconButton href={r.soundcloudLink} target='_blank'>
+            <FaSoundcloud color={colors.mediaColors.soundcloud}/>
+          </IconButton>}
+          {r.youtubeLink && <IconButton href={r.youtubeLink} target='_blank'>
+            <FaYoutube color={colors.mediaColors.youtube}/>
+          </IconButton>}
+          </Stack>
+          </Stack>
+          <Stack>
+          <Typography fontSize={22} sx={{pb: '8px'}} fontWeight={500}>{r.title}</Typography>
+          <Stack width='100%' gap='6px'>
+            {r?.tracklist?.map((t, ti) => 
+            <Grid2 container key={`release-${r.title}-track-${t.title}`} spacing={2}>
+              <Grid2 size={0.25}>
+                <Typography>{`${ti+1}. `}</Typography>
+              </Grid2>
+              <Grid2 display='flex' flexDirection={'column'} gap='2px'>
+                <Typography 
+                // fontWeight={playing === i && r.tracklist.length === 1 ? 550 : 'inherit'}
+                >{t.title}</Typography>
+                <Stack direction='row' gap='4px'>{t?.artists?.map((a, i) => <Typography 
+                fontSize={12}
+                key={`release-${r.title}-track-${t.title}-${a}`}>{a}{i !== t?.artists?.length -1 && ', '}{i === t?.artists?.length - 2 && ' & '}</Typography>)}</Stack>
+              </Grid2>
+            </Grid2>
+            
+          )}
+          </Stack>
+          </Stack>
+          <Box display={'none'}>
+
+          <iframe width="560" height="315" src={`${r.youtubeLinkToEmbed}&autoplay=${playing === i ? 1 : 0}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+          </Box>
+          </Stack>
+          </Box>)}
       </Box>
     </StyledMusicPage>
   );
