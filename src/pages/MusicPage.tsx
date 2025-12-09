@@ -12,53 +12,67 @@ import {
   FaPlay,
   FaPlayCircle,
   FaSoundcloud,
+  FaSpeakerDeck,
   FaStopCircle,
   FaYoutube,
 } from "react-icons/fa";
 import { colors } from "constants/colors";
 import useResponsive from "hooks/useResponsive";
+import { FaVolumeHigh } from "react-icons/fa6";
+import useTimer from "hooks/useTimer";
 
-const releases: {
-  title: string;
-  releaseDate: string;
-  image: string;
-  soundcloudLink?: string;
-  youtubeLinkToEmbed?: string;
-  youtubeLink: string;
-  tracklist: { title: string; artists?: string[]; length?: number }[];
-}[] = [
+const releases: Release[] = [
   {
     title: "An Evan Christmas",
     releaseDate: "12/12/2025",
     soundcloudLink: "https://soundcloud.com/evanjin/sets/an-evan-christmas",
     youtubeLink:
       "https://www.youtube.com/playlist?list=PLziapNNLJO45GDz7DCjPzlvUTnaRBKIFr",
+    totalLength: 8.31,
     tracklist: [
       {
         title: "It's Gonna Snow (Intro)",
         artists: ["Evan Jin"],
-        length: 1,
+        length: .33,
       },
       {
         title: "Winter Wonderland",
         artists: ["Evan Jin", "Darren Hartono", "Richie Phan", "Ryan Phan"],
+        length : 2.30
       },
       {
         title: "Where Did My Scarf Go? (Interlude)",
         artists: ["Evan Jin"],
+        length: 1.13
       },
       {
         title: "I'll Be Home for Christmas",
         artists: ["Evan Jin", "Darren Hartono", "Richie Phan", "Ryan Phan"],
+        length: 2.43
       },
       {
         title: "The Christmas Song",
         artists: ["Evan Jin"],
+        length: 2.12
       },
     ],
     youtubeLinkToEmbed:
       "https://www.youtube.com/embed/videoseries?si=bu0KZHKdCbtvAkT-&amp;controls=0&amp;list=PLziapNNLJO45GDz7DCjPzlvUTnaRBKIFr",
     image: "an_evan_christmas.jpeg",
+  },
+  {
+    title: 'September 2025',
+    releaseDate: '09/21/2025',
+    soundcloudLink: 'https://soundcloud.com/evanjin/september-2025',
+    image: 'September_2025.jpg',
+    youtubeLink: 'https://www.youtube.com/watch?v=FRlsmC6DRPA',
+    youtubeLinkToEmbed: 'https://www.youtube.com/embed/FRlsmC6DRPA?si=TBTO9MYJYizIRX1u',
+    tracklist: [
+      {
+        title: 'September 2025',
+        artists: ['Darren Hartono', 'Evan Jin', 'Richie Phan']
+      }
+    ]
   },
   {
     title: "September 2023: The Most Ambitious Update",
@@ -117,10 +131,9 @@ const MusicPage = () => {
   }, []);
 
   const {isMobile} = useResponsive();
-  
+
   const [playing, setPlaying] = useState<number>();
   const [hovering, setHovering] = useState<number>();
-
   const { language } = useAppSelector((state) => state.general);
 
   return (
@@ -134,11 +147,17 @@ const MusicPage = () => {
           width: "100%",
         }}
       >
-        {releases?.map((r, i) => (
+        {releases?.map((r, i) => {
+          return(
           <Box key={`release-${r.title}`} width="100%">
-              {isMobile && <Typography fontSize={22} sx={{ pb: "8px" }} fontWeight={500}>
+              {isMobile && <Stack  direction='row' alignItems={'center'} gap='4px' pb='8px'>
+                <Typography fontSize={22} fontWeight={500}>
                   {r.title}
-                </Typography>}
+                </Typography>
+                {playing === i && <FaVolumeHigh/>}
+
+                </Stack>
+                }
             <Stack direction="row" gap="18px" width="100%">
               <Stack width="30%" gap="8px">
                 <Box
@@ -164,7 +183,7 @@ const MusicPage = () => {
                     style={{
                       position: "absolute",
                       display:
-                        hovering === i && playing !== i ? "inherit" : "none",
+                        hovering === i && playing !== i  ? "inherit" : "none",
                     }}
                   />
                   <FaStopCircle
@@ -205,22 +224,27 @@ const MusicPage = () => {
                 </Stack>
               </Stack>
               <Stack>
-                {!isMobile && <Typography fontSize={22} sx={{ pb: "8px" }} fontWeight={500}>
+                {!isMobile && <Stack direction='row' alignItems={'center'} gap='4px' pb='8px'>
+                <Typography fontSize={22} fontWeight={500}>
                   {r.title}
-                </Typography>}
+                </Typography>
+                {playing === i&& <FaVolumeHigh/>}
+
+                </Stack>}
                 <Stack width="100%" gap="6px">
                   {r?.tracklist?.map((t, ti) => (
                     <Stack direction='row' alignItems='baseline' gap='4px' key={`release-${r.title}-track-${t.title}`}
 >
                     <Typography fontSize={12} color='textSecondary'>{`${ti + 1}. `}</Typography>
                     <Stack>
+
                     <Typography
                           sx={{
                             wordBreak: 'break-word',
                             textWrap: 'pretty',
                             flexWrap: 'wrap',
                           }}
-                          // fontWeight={playing === i && r.tracklist.length === 1 ? 550 : 'inherit'}
+                          fontWeight={playing === i && r.tracklist.length === 1 ? 500 : 'inherit'}
                           >
                           {t.title}
                         </Typography>
@@ -240,39 +264,6 @@ const MusicPage = () => {
 
 
                     </Stack>
-                    // <Grid2
-                    //   container
-                    //   key={`release-${r.title}-track-${t.title}`}
-                    //   spacing={2}
-                    // >
-                    //   <Grid2 size={0.25}>
-                    //     <Typography>{`${ti + 1}. `}</Typography>
-                    //   </Grid2>
-                    //   <Grid2 display="flex" flexDirection={"column"} gap="2px">
-                    //     <Typography
-                    //       sx={{
-                    //         wordBreak: 'break-word',
-                    //         textWrap: 'pretty',
-                    //         flexWrap: 'wrap',
-                    //       }}
-                    //     // fontWeight={playing === i && r.tracklist.length === 1 ? 550 : 'inherit'}
-                    //     >
-                    //       {t.title}
-                    //     </Typography>
-                    //     <Stack direction="row" gap="4px">
-                    //       {t?.artists?.map((a, i) => (
-                    //         <Typography
-                    //           fontSize={12}
-                    //           key={`release-${r.title}-track-${t.title}-${a}`}
-                    //         >
-                    //           {a}
-                    //           {i !== t?.artists?.length - 1 && ", "}
-                    //           {i === t?.artists?.length - 2 && " & "}
-                    //         </Typography>
-                    //       ))}
-                    //     </Stack>
-                    //   </Grid2>
-                    // </Grid2>
                   ))}
                 </Stack>
               </Stack>
@@ -292,7 +283,7 @@ const MusicPage = () => {
               </Box>
             </Stack>
           </Box>
-        ))}
+        )})}
       </Box>
     </StyledMusicPage>
   );

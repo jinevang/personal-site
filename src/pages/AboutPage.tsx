@@ -6,7 +6,7 @@ import { Box, Button, List, ListItem, Typography, useTheme } from "@mui/material
 // Styles & Colors
 import styled from "@emotion/styled";
 import { theme } from "styles/BasicTheme";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaSoundcloud } from "react-icons/fa";
 import { useAppSelector } from "hooks/app";
 import { strings } from "constants/strings";
 
@@ -195,6 +195,20 @@ const AboutPage = () => {
             rel="nooperner noreferrer"
           >
             LinkedIn
+          </a>
+        </ListItem>
+        <ListItem
+          disablePadding
+          alignItems="center"
+          sx={{ display: "flex", gap: "0.5ch" }}
+        >
+          <FaSoundcloud />
+          <a
+            href="https://soundcloud.com/evanjin"
+            target="_blank"
+            rel="nooperner noreferrer"
+          >
+            SoundCloud
           </a>
         </ListItem>
       </List>
