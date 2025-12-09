@@ -106,5 +106,5 @@ export const strings = {
 			EN: 'Responsibilities',
 			CN: '責任'
 		}
-	}
+	},
 };
